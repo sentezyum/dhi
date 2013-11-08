@@ -1,0 +1,288 @@
+html {
+
+}
+
+body {
+	font-family: 'PT Sans', sans-serif;
+	font-size: 13px;
+	line-height: 17px;
+	background: url(../img/head_back.png) repeat-x left top;
+}
+
+.core_animation_slow{
+	transition: all 0.40s ease-in-out;
+ -o-transition: all 0.40s ease-in-out;
+ -moz-transition: all 0.40s ease-in-out;
+-webkit-transition: all 0.40s ease-in-out;
+}
+
+.core_animation_fast{
+	transition: all 0.20s ease-in-out;
+ -o-transition: all 0.20s ease-in-out;
+ -moz-transition: all 0.20s ease-in-out;
+-webkit-transition: all 0.20s ease-in-out;
+}
+
+
+.text-right {
+	text-align: right;
+}
+
+.header-thin {
+	height: 21px;
+	padding-top: 3px;
+	font-size: 0.917em;
+}
+
+.header-thin .language-select a{
+	color: #026bb5;
+	text-decoration: none;
+}
+
+.header-thin .language-select a:hover{
+	color: #494949;
+	text-decoration: underline;
+}
+
+.header-thin .contact, .header-thin .contact a{
+	color: #666666;
+	text-decoration: none;
+}
+
+.header-thin .contact a:hover{
+	text-decoration: underline;
+}
+
+.container_12 > .header {
+	height: 100px;
+	background: url(../img/logo_back.png) no-repeat left top;
+	padding-top: 11px;
+}
+
+.header .logo img{
+	margin-left: 7px;
+}
+
+.header .menu-social{
+	height: 100px;
+}
+
+.header .menu-social .social{
+	height: 62px;
+}
+
+.header .menu-social .social a{
+	text-decoration: none;
+	height: 31px;
+	width: 33px;
+	background: url(../img/social_logo.png) no-repeat;
+	background-position: 0px 0px;
+	display: inline-block;
+	margin-left: 2px;
+	margin-top: 17px;
+}
+
+.header .menu-social .social a.facebook{
+	background-position: 0px top;
+}
+
+.header .menu-social .social a.facebook:hover{
+	background-position: 0px -31px;
+}
+
+.header .menu-social .social a.twitter{
+	background-position: -39px top;
+}
+
+.header .menu-social .social a.twitter:hover{
+	background-position: -39px -31px;
+}
+
+.header .menu-social .social a.youtube{
+	background-position: -78px top;
+}
+
+.header .menu-social .social a.youtube:hover{
+	background-position: -78px -31px;
+}
+
+.header .menu-social .menu{
+	height: 37px;
+	padding-top: 1px;
+}
+
+.header .menu-social .menu ul{
+	margin:0px;
+	padding: 0px;
+}
+
+.header .menu-social .menu ul li{
+	display: inline-block;
+	zoom: 1;
+    *display: inline;
+	margin-left: 20px;
+	padding: 0px;
+	list-style-type: none;
+}
+
+.header .menu-social .menu ul li a{
+	text-decoration: none;
+	color: #494949;
+	font-size: 1em;
+	padding: 10px 20px;
+	display: inline-block;
+}
+
+.header .menu-social .menu ul > li:hover > a{
+	background-color: #999999;
+	color: #FEFEFE;
+}
+
+.header .menu-social .menu ul > li:hover > ul{
+	opacity: 1;
+	visibility: visible;
+}
+
+.header .menu-social .menu ul > li.active > a, .header .menu-social .menu ul > li.active:hover > a{
+	background-color: #999999;
+	color: #FEFEFE;
+}
+
+.header .menu-social .menu ul ul{
+	position: absolute;
+	text-align: left;
+	opacity: 0;
+	visibility: hidden;
+	*top:135px;
+	*margin-left:-144px;
+	z-index: 1;
+	margin-top: -1px;
+}
+
+.header .menu-social .menu ul ul li{
+	display: block;
+	margin:0px;
+}
+
+.header .menu-social .menu ul ul li a{
+	background-color: #eeeeee;
+	color: #494949;
+	width: 100%;
+	border-top: 1px solid #333333;
+}
+
+.header .menu-social .menu ul ul li a:hover{
+	background-color: #999999;
+	color: #F3F3F3;
+}
+
+.shadow {
+	height: 10px;
+	position: relative;
+	margin-top: -1px;
+	margin-bottom: -9px;
+	background: url(../img/header_shadow.png) no-repeat center center;
+}
+
+.slug {
+	padding-top: 35px;
+	height: 30px;
+	color: #cccccc;
+}
+
+.slug.main {
+	height: 75px;
+
+}
+
+.showcase {
+	
+}
+
+.showcase > a{
+	height:525px;
+	width:470px;
+	display: block;
+	float: left;
+	color: #FFF;
+}
+
+.showcase > a > div{
+	width: 100% !important;
+}
+
+.showcase div.button{
+	width:55px;
+	height: 55px;
+	margin-right: 10px;
+	margin-left: 405px;
+	margin-top: 10px;
+	margin-bottom: 30px;
+	background: url(../img/showcase_buttons.png) no-repeat center left;
+	opacity: .3;
+}
+
+.showcase div.led_urunler div.button{
+	background-position: -55px center;
+}
+
+.showcase div.image{
+	background: url(../img/showcase.png) no-repeat top left;
+	height: 405px;
+	margin-bottom: -95px;
+	position: relative;
+	opacity: .9;
+}
+
+.showcase > a:hover div.image, .showcase > a:hover div.button {
+	opacity: 1;
+}
+
+.showcase div.content {
+	height: 120px;
+	width: 430px;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.showcase > a > div.yer_hizmetleri {
+	background-color: #026bb5;
+}
+
+.showcase div.led_urunler div.image{
+	background-position: -470px center;
+}
+
+.showcase > a > div.led_urunler {
+	background-color: #ffbe00;
+}
+
+.content .news {
+	margin-top: 60px;
+	color: #494949;
+	padding-left: 10px;
+	margin-right: -10px;
+}
+
+.content .news .h5 {
+	margin-bottom: 30px;
+}
+
+.content .news .node {
+	height: 100px;
+	border-bottom: 1px solid #d7d7d7;
+}
+
+.content .news .node .header{
+	margin-bottom: 20px;
+	font-weight: bold;
+}
+
+.content .news .node .content{
+	height: 50px;
+}
+
+.content .news .node .link, .content .news .node .link a{
+	text-align: right;
+	color: #026bb5;
+}
