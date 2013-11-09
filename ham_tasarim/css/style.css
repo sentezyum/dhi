@@ -205,6 +205,7 @@ body {
 	display: block;
 	float: left;
 	color: #FFF;
+	cursor: pointer;
 }
 
 .showcase > a > div{
@@ -231,11 +232,11 @@ body {
 	height: 405px;
 	margin-bottom: -95px;
 	position: relative;
-	opacity: .9;
+	opacity: 1;
 }
 
 .showcase > a:hover div.image, .showcase > a:hover div.button {
-	opacity: 1;
+	opacity: .9;
 }
 
 .showcase div.content {
@@ -264,25 +265,165 @@ body {
 	margin-right: -10px;
 }
 
-.content .news .h5 {
-	margin-bottom: 30px;
+.content .news h5 {
+	margin-bottom: 0px;
 }
 
 .content .news .node {
 	height: 100px;
 	border-bottom: 1px solid #d7d7d7;
+	margin-top: 15px;
+}
+
+.content .news .node div{
+	overflow: hidden;
 }
 
 .content .news .node .header{
-	margin-bottom: 20px;
+	height: 33px;
 	font-weight: bold;
+	line-height: 15px;
 }
 
 .content .news .node .content{
-	height: 50px;
+	height: 47px;
+	line-height: 15px;
 }
 
-.content .news .node .link, .content .news .node .link a{
+.content .news .node .link{
 	text-align: right;
-	color: #026bb5;
+	width: 100%;
+	clear: both;
+	display: block;
+	margin-bottom: 2px;
 }
+
+.content .news .node .link a{	
+	color: #026bb5;
+	text-decoration: underline;
+	background: url('../img/arrow_cont.png') no-repeat right 5px;
+	padding-right: 15px; 
+}
+
+.content .news .node .link a:hover{	
+	text-decoration: none;
+}
+
+.content .new-products{
+	margin-top: 60px;
+	color: #494949;
+	padding-left: 10px;
+	margin-right: -10px;
+}
+
+.content .new-products h5 {
+	text-indent: 12px;
+	margin-bottom: 7px;
+}
+
+.content .new-products .product {
+	width: 140px;
+	height: 160px;
+	margin-left: 10px;
+	margin-top: 10px;
+	display: block;
+	float: left;
+	text-decoration: none;
+	cursor: pointer;
+	color: #494949;
+}
+
+.content .new-products .product .image{
+	width: 140px;
+	height: 104px;
+	border: none;
+	overflow: hidden;
+	text-align: center;
+	background: url('../img/no_pic.png') no-repeat center center;
+	background-color: #dedede;
+}
+
+.content .new-products .product .shadow{
+	background: url('../img/new-product-shadow.png') no-repeat center center;
+	height: 5px;
+	width: 140px;
+	margin-top: 0px;
+	margin-bottom: -5px;
+}
+
+.content .new-products .product .image img {
+	height: 104px;
+}
+
+.content .new-products .product:hover img {
+	opacity: .9;
+}
+
+.content .new-products .product .header {
+	margin-top: 10px;
+	height: 17px;
+	overflow: hidden;
+	font-weight: bold;
+}
+
+.content .new-products .product:hover .header, .content .new-products .product:hover .details {
+	text-decoration: underline;
+}
+
+.content .new-products .product .details {
+	height: 34px;
+	overflow: hidden;
+	line-height: 15px;
+}
+
+.footer_container {
+	background: url(../img/footer_back.png) repeat-x center top;
+	margin-top: 50px;
+}
+
+.footer_container .footer {
+	background: url(../img/footer_shadow.png) no-repeat center top;
+	height: 187px;
+}
+
+.footer_container .footer .inline{
+	height: 163px;
+	text-align: center;
+}
+
+.footer_container .footer .inline img{
+	border: none;
+	margin-top: 42px;
+	filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 10+, Firefox on Android */
+    filter: gray; /* IE6-9 */
+    -webkit-filter: grayscale(100%); /* Chrome 19+, Safari 6+, Safari 6+ iOS */
+}
+
+.footer_container .footer .inline img:hover{
+	filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'1 0 0 0 0, 0 1 0 0 0, 0 0 1 0 0, 0 0 0 1 0\'/></filter></svg>#grayscale");
+    -webkit-filter: grayscale(0%);
+}
+
+.footer_container .footer .copyright{
+	color: #bfbfbf;
+	padding-top: 3px;
+}
+
+.footer_container .footer .copyright a {
+	display: inline-block;
+	-webkit-transform: scale(.9);
+	-moz-transform: scale(.9);
+	-ms-transform: scale(.9);
+	text-decoration: none;
+	color: #bfbfbf;
+	width: auto;
+}
+
+.footer_container .footer a:hover{
+	color: #FFF;
+	-webkit-transform: scale(1);
+	-moz-transform: scale(1);
+	-ms-transform: scale(1);
+	margin-left: -15px;
+}
+
