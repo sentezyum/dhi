@@ -1,0 +1,408 @@
+﻿/* Browser varsayılan değerleri sıfırlama */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	text-decoration:none;
+	list-style-type:none;
+	font-variant:normal
+
+}
+/* Eski browserler için HTML5 display-role sıfırlama */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* Browser varsayılan değerleri sıfırlama bitti */
+
+/* genel tanımlamalar */
+
+html {
+	height: 100%;
+}
+
+body {
+	margin:0px;
+	padding:0px;
+	font-family:Arial;
+	color:#333333;
+	font-size:12px;
+	line-height:18px;
+	height: 100%;
+	
+}
+
+
+
+div.tamgenis {
+	margin:0 auto;
+	width: 100%;
+	clear: both;
+	float:left;
+}
+
+.ortala {
+	margin:0 auto;
+	width: 960px;
+	clear: both;
+}
+
+/*  full screen arka plan*/ 
+#full-screen-background-image {
+  z-index: -999;
+  min-height: 100%;
+  min-width: 100%;
+  height: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+
+
+
+#wrapper {
+   	/*  height: auto !important;*/
+   	min-height:100%;
+   	height:100%;
+   	width:100%; 
+	position:relative; 
+	top:0; 
+	z-index:4;
+		
+}
+
+
+
+#footer {
+    height: 36px; /* Define height of the footer */
+    float:left;
+    bottom: 0; /* Sit it on the bottom */
+    left: 0;
+    width: 100%; /* As wide as it's allowed */
+    background-image:url('_img/footer_bg.png');
+}
+
+
+
+
+/* genel tanımlamalar bitti*/
+
+h1 {
+	font-size:24px;
+	font-weight:bold;
+	color:#000000;
+	margin-bottom:25px;
+	margin-top:25px;
+}
+
+h2 {
+	font-size:18px;
+	font-weight:bold;
+	margin-top:20px;
+	margin-bottom:20px;
+}
+
+
+
+p {
+	font-size:12px;
+	line-height:20px;
+}
+
+.button {
+	height:32px;
+	background-color:black;
+	background-image:url('_img/inner_arrow.gif');
+	background-repeat:no-repeat;
+	background-position:93% center;
+	padding-right:5px;
+	width:120px;
+	margin-top:15px;
+}
+
+.button:hover {
+background-color:#666666;
+}
+.button a {
+	color:white;
+	display:block;
+	line-height:31px;
+	margin-left:10px;
+}
+
+.urun {
+	width:300px;
+	height:219px;
+	margin:10px 10px 20px 10px; 
+	float:left;
+	
+}
+
+.urun_p a {
+ color:white;
+}
+
+.urun span {
+	background-image:url('_img/footer_bg.png'); 
+	color:white; 
+	height:34px; 
+	padding:5px; 
+	font-size:11px;
+	line-height:15px;
+	margin-top:-2px;
+	width:290px;
+	float:left;
+	
+}
+
+
+
+
+
+/* header divleri */
+
+
+#header {
+	height:195px;
+	background-image:url('_img/header_bg.png');
+	background-repeat:repeat-x;
+	position:relative;
+	z-index:2;
+	
+}
+
+#logo {
+	width:185px;
+	padding-top:5px;
+	float:left;
+}
+
+
+#social_icons {
+	width:240px;
+	float:right;
+
+	height:135px;
+	
+}
+
+#social_icons span {
+	color:#999999;
+}
+
+
+.facebook_icon {
+	display: block;
+	width: 37px;
+	height: 37px;
+	background: url('_img/facebook.png') bottom;
+	text-indent: -99999px;
+	float:left;
+	margin-right:5px;
+	margin-left:58px;
+}
+.facebook_icon:hover {background-position: 0 0;}
+
+.twitter_icon {
+	display: block;
+	width: 37px;
+	height: 37px;
+	background: url('_img/twitter.png') bottom;
+	text-indent: -99999px;
+	float:left;
+	margin-right:5px;
+}
+.twitter_icon:hover {background-position: 0 0;}
+
+.youtube_icon {
+	display: block;
+	width: 37px;
+	height: 37px;
+	background: url('_img/youtube.png') bottom;
+	text-indent: -99999px;
+	float:left;
+	margin-right:5px;
+}
+.youtube_icon:hover {background-position: 0 0;}
+
+.panorama_icon {
+	display: block;
+	width: 37px;
+	height: 37px;
+	background: url('_img/360.png') bottom;
+	text-indent: -99999px;
+	float:left;
+}
+.panorama_icon:hover {background-position: 0 0;}
+
+
+
+/* Dkounmatik ekran destekli dropdown menü css kodları */
+#navDiv ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        }
+
+    #navDiv ul li {
+        float: left;
+        width: 130px;
+        height:38px;
+        font-size:18px;
+        padding-top:21px;
+                
+        }
+    #navDiv ul li:hover {
+	    background-color:black;
+	    border-top:3px solid #909090;
+	    padding-top:18px;
+        }
+
+   #navDiv ul li ul {
+   		margin-top:20px;
+   		
+   		}
+   #navDiv ul li ul li {
+   		font-size:14px;
+   		border-top:1px gray solid;
+   		height:30px;
+   		padding-top:8px;
+        background-image:url('_img/menu_bg.png');
+        width:190px;
+
+
+   		}
+
+   #navDiv ul li ul li:hover {
+	    background-color:black;
+	    border-top:1px gray solid;
+	    padding-top:8px;
+	    }
+        
+    #navDiv ul ul li {
+        clear: left;
+        }
+#navDiv ul ul {
+        display: none;
+        }
+ #navDiv ul li.dynamicClass ul {
+	    display: block;
+	    position: absolute;
+  	  }
+
+
+
+
+/* ie6 için drop down menu dinamik class (dokunmatik desteği olmadan) */
+/*  
+#navDiv ul li {
+        position: relative;
+        }
+    #navDiv ul li:hover ul,
+    #navDiv ul li.dynamicClass ul {
+        position: absolute;
+        }
+*/
+
+/* IE6 desteği ve dokunmatik desteği (çalışması için li taglarına onclick="manageID(this)" konulmalı ) */
+#navDiv ul li#dynamicID ul {
+    display: block;
+    }
+    
+    
+    
+#navDiv a {
+        display: block;
+        width: 90%;      /* IE6 */
+        padding: 0 0 0 15px;
+	    color: white;
+	    text-decoration: none;
+	   }
+/* Dkounmatik ekran destekli dropdown menü css kodları bitti*/
+
+/* header divleri bitti */
+
+
+
+
+/* content css leri*/
+
+
+
+
+
+/* content css leri bitti*/
+
+
+
+
+
+/* witget css leri*/
+
+
+/* witget css leri bitti*/
+
+
+
+
+/* footer css leri*/
+
+
+
+
+/* footer css leri bitti*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
