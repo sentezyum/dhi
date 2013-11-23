@@ -9,6 +9,14 @@ body {
 	background: url(../img/head_back.png) repeat-x left top;
 }
 
+body.yer_ekipmanlari {
+	background: url(../img/yer_ekipmanlari_back.png) repeat-x left -1px;
+}
+
+body.led_ekipmanlari {
+	background: url(../img/led_ekipmanlari_back.png) repeat-x left -1px;
+}
+
 .core_animation_slow{
 	transition: all 0.40s ease-in-out;
  -o-transition: all 0.40s ease-in-out;
@@ -194,6 +202,17 @@ body {
 	height: 75px;
 
 }
+
+.yer_ekipmanlari .slug {
+	color: #FFF;
+	height: 55px;
+}
+
+.led_ekipmanlari .slug {
+	color: #ffffff;
+	height: 55px;
+}
+
 
 .showcase {
 	
@@ -476,4 +495,70 @@ body {
 	margin-bottom: 0px;
 }
 
+ul.left_menu,
+ul.left_menu li ul {
+	width: 100%;
+	padding: 0px;
+	margin: 0px;
+	display: block;
+}
+
+ul.left_menu li {
+	list-style-type: none;
+	display: block;
+	padding: 0px;
+	margin: 0px;
+	font-size: 12px;
+	width:100%;
+}
+
+ul.left_menu li li{
+	margin-left: 20px;
+}
+
+
+ul.left_menu > li ul {
+	list-style-type: none;
+	display: block;
+	padding: 0px;
+	margin: 0px;
+}
+
+ul.left_menu > li.menu_header {
+	color: #494949;
+	font-size: 16px;
+	font-weight: bold;
+	height: 30px;
+}
+
+ul.left_menu > li a{
+	width: 100%;
+	display: block;
+	text-decoration: none;
+	color: #666666;
+	padding: 4px;
+	margin: 0px;
+	height: 20px;
+	margin-left: -10px;
+	padding-left: 10px;
+}
+
+ul.left_menu > li.active > a{
+	background-color: #999999;
+	color: #fefefe;
+}
+
+.product .image {
+	background: url(../img/shadow_content.png) center bottom;
+	padding-bottom: 31px;
+}
+
+.product .image img{
+	border: 0px;
+}
+
+.product h3 {
+	color: #494949;
+	font-size: 16px;
+}
 
