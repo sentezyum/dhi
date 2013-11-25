@@ -14,8 +14,13 @@ body.yer_ekipmanlari {
 }
 
 body.led_ekipmanlari {
-	background: url(../img/led_ekipmanlari_back.png) repeat-x left -1px;
+	background: url(../img/led_ekipmanlari_back.png) repeat-x left -1px ;
 }
+body.corporate_about {
+	background: url(../img/corporate_about_back.png) repeat-x left -1px ;
+	
+}
+
 
 .core_animation_slow{
 	transition: all 0.40s ease-in-out;
@@ -212,6 +217,11 @@ body.led_ekipmanlari {
 	color: #ffffff;
 	height: 55px;
 }
+.corporate_about .slug {
+	color: #FFF;
+	height: 55px;
+}
+
 
 
 .showcase {
