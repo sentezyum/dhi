@@ -536,11 +536,13 @@ ul.left_menu > li.active > a{
 .detail_left {
 	float:left;
 	width:64%;
+	margin:10px 0 0 0;
 } 
 .detail_right{
 	float:left;
 	width:35%;
 	text-align:center;
+	margin:10px 0 0 0;
 }
 .detail_right div{
 	float: left;
