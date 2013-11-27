@@ -455,45 +455,6 @@ body.corporate_about {
 	-ms-transform: scale(1);
 	margin-left: -15px;
 }
-.sol_menu {
-	width:100%; 
-	
-	padding-top:20px; 
-	float:left;
-	clear:both
-}
-
-.sol_menu ul {
-	
-}
-
-
-.sol_menu li {
-    overflow:hidden;
-    white-space:nowrap;
-    line-height:30px;
-}
-
-
-
-.sol_menu li a {
-	color:#727272;
-	display:block;
-	background-image:url(../img/ok_normal.gif);
-	background-repeat:no-repeat;
-	background-position:left center;
-	text-indent:20px;
-	
-}
-
- 
-.sol_menu li a:hover {
-	color:#333333;
-	text-decoration:underline;
-	background-image:url('../img/ok.gif');
-	background-repeat:no-repeat;
-	background-position:left center;
-}
 .content .menu {
 	margin-top: 60px;
 	color: #494949;
@@ -572,3 +533,19 @@ ul.left_menu > li.active > a{
 	font-size: 16px;
 }
 
+.detail_left {
+	float:left;
+	width:64%;
+} 
+.detail_right{
+	float:left;
+	width:35%;
+	text-align:center;
+}
+.detail_right div{
+	float: left;
+	width: 30%;
+	margin: 4px 1.5% 4px 1.5%;
+	text-align: center;
+	height: auto;
+}  
