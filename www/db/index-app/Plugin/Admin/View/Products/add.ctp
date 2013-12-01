@@ -18,12 +18,16 @@
 <p>
 	<?php echo $this->Form->input('productcode',Array('label'=>Array('text' =>'Ürün Kodu :','class' => 'req'),'class' => 'text medium big','autocomplete' => 'off','between' => '<br/>','error' => array('wrap' => 'span','class' => 'note error')));?>
 </p>
-<p>
-	<?php echo $this->Form->input('name',Array('label'=>Array('text' =>'Ürün Adı :','class' => 'req'),'class' => 'text medium big','autocomplete' => 'off','between' => '<br/>','error' => array('wrap' => 'span','class' => 'note error')));?>
-</p>
-<p>
-	<?php echo $this->Form->input('value',Array('label'=>Array('text' =>'Ürün Detayı :','class' => 'req'),'class' => 'wysiwyg','autocomplete' => 'off','between' => '<br/>','error' => array('wrap' => 'span','class' => 'note error')));?>
-</p>
+<?php foreach (Configure::read('lang') as $lang) { ?>
+	<p>
+		<?php echo $this->Form->input('name' . ($lang != Configure::read('base_lang') ? '_' . $lang : ''), array('label'=>Array('text' =>'Ürün Adı (' . $lang . ') :', 'class' => 'req'),'class' => 'text medium big','autocomplete' => 'off','between' => '<br/>','error' => array('wrap' => 'span','class' => 'note error')));?>
+	</p>	
+<?php } ?>
+<?php foreach (Configure::read('lang') as $lang) { ?>
+	<p>
+		<?php echo $this->Form->input('value' . ($lang != Configure::read('base_lang') ? '_' . $lang : ''), array('label'=>Array('text' =>'Ürün Detayı (' . $lang . ') :', 'class' => 'req'),'class' => 'wysiwyg','autocomplete' => 'off','between' => '<br/>','error' => array('wrap' => 'span','class' => 'note error')));?>
+	</p>	
+<?php } ?>
 <p>
 	<?php echo $this->Form->input('youtube_video',Array('label'=>Array('text' =>'Youtube Video Id (Yoksa boş bırakınız):'),'class' => 'text medium big','autocomplete' => 'off','between' => '<br/>','error' => array('wrap' => 'span','class' => 'note error')));?>
 </p>

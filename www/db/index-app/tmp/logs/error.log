@@ -33159,3 +33159,903 @@ Request URL: /dhi/www/www/img/loading.gif
 Stack Trace:
 #0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2013-12-01 22:54:13 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/loading.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 22:54:13 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/closelabel.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 22:54:18 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/loading.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+n}
+2013-12-01 22:54:50 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/closelabel.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 22:54:50 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/loading.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 22:56:06 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/loading.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 22:56:06 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/closelabel.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 22:56:41 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/ajax-loader.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 22:56:41 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/loading.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 22:56:41 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/closelabel.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 22:56:51 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/loading.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 22:56:51 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/closelabel.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 22:57:45 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/closelabel.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 22:57:45 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/loading.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 22:58:17 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/loading.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+n}
+2013-12-01 22:58:54 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/closelabel.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 22:58:54 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/loading.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 23:00:18 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/closelabel.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 23:00:18 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/loading.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 23:00:36 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/loading.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 23:00:36 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/closelabel.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 23:01:33 Error: [MissingTableException] Table productprofiles for model Productprofile was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'productprofiles',
+  'class' => 'Productprofile',
+  'ds' => 'default',
+)
+Request URL: /dhi/www/www/admin/products/index
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\db\lib\Cake\Model\Model.php(3476): Model->setSource('productprofiles')
+#1 E:\Wamp\www\dhi\www\db\lib\Cake\Model\Datasource\DboSource.php(1063): Model->getDataSource()
+#2 E:\Wamp\www\dhi\www\db\lib\Cake\Model\Model.php(2880): DboSource->read(Object(Product), Array)
+#3 E:\Wamp\www\dhi\www\db\lib\Cake\Model\Model.php(2852): Model->_readDataSource('all', Array)
+#4 E:\Wamp\www\dhi\www\db\lib\Cake\Controller\Component\PaginatorComponent.php(198): Model->find('all', Array)
+#5 E:\Wamp\www\dhi\www\db\lib\Cake\Controller\Controller.php(1079): PaginatorComponent->paginate(NULL, Array, Array)
+#6 E:\Wamp\www\dhi\www\db\index-app\Plugin\Admin\Controller\ProductsController.php(19): Controller->paginate()
+#7 [internal function]: ProductsController->index()
+#8 E:\Wamp\www\dhi\www\db\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(ProductsController), Array)
+#9 E:\Wamp\www\dhi\www\db\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#10 E:\Wamp\www\dhi\www\db\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(ProductsController), Object(CakeRequest), Object(CakeResponse))
+#11 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2013-12-01 23:01:33 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/loading.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 23:01:33 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/closelabel.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 23:02:43 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/closelabel.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 23:02:43 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/loading.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 23:02:45 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'generatetreelist' at line 1
+Request URL: /dhi/www/www/admin/products/add
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\db\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 E:\Wamp\www\dhi\www\db\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('generatetreelis...', Array)
+#2 E:\Wamp\www\dhi\www\db\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('generatetreelis...', Array, Array)
+#3 E:\Wamp\www\dhi\www\db\lib\Cake\Model\Datasource\DboSource.php(611): DboSource->fetchAll('generatetreelis...', Array, Array)
+#4 E:\Wamp\www\dhi\www\db\lib\Cake\Model\Model.php(801): DboSource->query('generatetreelis...', Array, Object(Productgroup))
+#5 E:\Wamp\www\dhi\www\db\index-app\Plugin\Admin\Controller\ProductsController.php(34): Model->__call('generatetreelis...', Array)
+#6 E:\Wamp\www\dhi\www\db\index-app\Plugin\Admin\Controller\ProductsController.php(34): Productgroup->generatetreelist(NULL, NULL, NULL, '+', NULL)
+#7 [internal function]: ProductsController->add()
+#8 E:\Wamp\www\dhi\www\db\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(ProductsController), Array)
+#9 E:\Wamp\www\dhi\www\db\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#10 E:\Wamp\www\dhi\www\db\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(ProductsController), Object(CakeRequest), Object(CakeResponse))
+#11 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2013-12-01 23:02:45 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/closelabel.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 23:02:45 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/loading.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 23:02:50 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'generatetreelist' at line 1
+Request URL: /dhi/www/www/admin/products/add
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\db\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 E:\Wamp\www\dhi\www\db\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('generatetreelis...', Array)
+#2 E:\Wamp\www\dhi\www\db\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('generatetreelis...', Array, Array)
+#3 E:\Wamp\www\dhi\www\db\lib\Cake\Model\Datasource\DboSource.php(611): DboSource->fetchAll('generatetreelis...', Array, Array)
+#4 E:\Wamp\www\dhi\www\db\lib\Cake\Model\Model.php(801): DboSource->query('generatetreelis...', Array, Object(Productgroup))
+#5 E:\Wamp\www\dhi\www\db\index-app\Plugin\Admin\Controller\ProductsController.php(34): Model->__call('generatetreelis...', Array)
+#6 E:\Wamp\www\dhi\www\db\index-app\Plugin\Admin\Controller\ProductsController.php(34): Productgroup->generatetreelist(NULL, NULL, NULL, '+', NULL)
+#7 [internal function]: ProductsController->add()
+#8 E:\Wamp\www\dhi\www\db\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(ProductsController), Array)
+#9 E:\Wamp\www\dhi\www\db\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#10 E:\Wamp\www\dhi\www\db\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(ProductsController), Object(CakeRequest), Object(CakeResponse))
+#11 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2013-12-01 23:02:50 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/closelabel.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 23:02:50 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/loading.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 23:03:16 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/closelabel.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 23:03:16 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/loading.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 23:03:16 Error: [MissingActionException] Action ProductsController::<() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProductsController',
+  'action' => '<',
+)
+Request URL: /dhi/www/www/admin/products/%3C
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\db\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 E:\Wamp\www\dhi\www\db\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(ProductsController), Object(CakeRequest), Object(CakeResponse))
+#2 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-12-01 23:04:05 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/loading.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+n}
+2013-12-01 23:04:05 Error: [MissingActionException] Action ProductsController::<() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProductsController',
+  'action' => '<',
+)
+Request URL: /dhi/www/www/admin/products/%3C
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\db\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 E:\Wamp\www\dhi\www\db\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(ProductsController), Object(CakeRequest), Object(CakeResponse))
+#2 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-12-01 23:05:13 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/loading.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 23:05:13 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/closelabel.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 23:05:14 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/closelabel.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 23:05:14 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/loading.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 23:05:49 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/loading.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 23:05:49 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/closelabel.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 23:05:49 Error: [MissingActionException] Action ProductsController::<() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProductsController',
+  'action' => '<',
+)
+Request URL: /dhi/www/www/admin/products/%3C
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\db\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 E:\Wamp\www\dhi\www\db\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(ProductsController), Object(CakeRequest), Object(CakeResponse))
+#2 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-12-01 23:05:50 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/loading.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 23:05:50 Error: [MissingActionException] Action ProductsController::<() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProductsController',
+  'action' => '<',
+)
+Request URL: /dhi/www/www/admin/products/%3C
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\db\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 E:\Wamp\www\dhi\www\db\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(ProductsController), Object(CakeRequest), Object(CakeResponse))
+#2 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-12-01 23:05:50 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/closelabel.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 23:06:03 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/loading.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 23:06:03 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/closelabel.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 23:06:03 Error: [MissingActionException] Action ProductsController::<() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProductsController',
+  'action' => '<',
+)
+Request URL: /dhi/www/www/admin/products/%3C
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\db\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 E:\Wamp\www\dhi\www\db\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(ProductsController), Object(CakeRequest), Object(CakeResponse))
+#2 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-12-01 23:06:11 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/loading.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 23:06:11 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/closelabel.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 23:06:12 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/loading.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 23:06:12 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/closelabel.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 23:06:13 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/loading.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 23:06:13 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/closelabel.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 23:06:14 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/closelabel.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 23:06:14 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/loading.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 23:06:14 Error: [MissingActionException] Action ProductsController::<() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProductsController',
+  'action' => '<',
+)
+Request URL: /dhi/www/www/admin/products/%3C
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\db\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 E:\Wamp\www\dhi\www\db\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(ProductsController), Object(CakeRequest), Object(CakeResponse))
+#2 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-12-01 23:07:01 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/loading.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 23:07:01 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/closelabel.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 23:07:34 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/closelabel.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 23:07:34 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/loading.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 23:07:46 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/loading.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 23:07:46 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/closelabel.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 23:07:50 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/loading.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 23:07:50 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/closelabel.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 23:07:52 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/loading.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 23:07:52 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/closelabel.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 23:07:52 Error: [MissingActionException] Action ProductsController::<() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProductsController',
+  'action' => '<',
+)
+Request URL: /dhi/www/www/admin/products/%3C
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\db\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 E:\Wamp\www\dhi\www\db\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(ProductsController), Object(CakeRequest), Object(CakeResponse))
+#2 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-12-01 23:07:53 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/closelabel.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 23:07:53 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/loading.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 23:07:54 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'generatetreelist' at line 1
+Request URL: /dhi/www/www/admin/productgroups/add
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\db\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 E:\Wamp\www\dhi\www\db\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('generatetreelis...', Array)
+#2 E:\Wamp\www\dhi\www\db\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('generatetreelis...', Array, Array)
+#3 E:\Wamp\www\dhi\www\db\lib\Cake\Model\Datasource\DboSource.php(611): DboSource->fetchAll('generatetreelis...', Array, Array)
+#4 E:\Wamp\www\dhi\www\db\lib\Cake\Model\Model.php(801): DboSource->query('generatetreelis...', Array, Object(AppModel))
+#5 E:\Wamp\www\dhi\www\db\index-app\Plugin\Admin\Controller\ProductgroupsController.php(38): Model->__call('generatetreelis...', Array)
+#6 E:\Wamp\www\dhi\www\db\index-app\Plugin\Admin\Controller\ProductgroupsController.php(38): AppModel->generatetreelist(NULL, NULL, NULL, '+', NULL)
+#7 [internal function]: ProductgroupsController->add()
+#8 E:\Wamp\www\dhi\www\db\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(ProductgroupsController), Array)
+#9 E:\Wamp\www\dhi\www\db\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#10 E:\Wamp\www\dhi\www\db\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(ProductgroupsController), Object(CakeRequest), Object(CakeResponse))
+#11 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2013-12-01 23:07:54 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/closelabel.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 23:07:54 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/loading.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 23:07:55 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/closelabel.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 23:07:55 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/loading.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 23:10:28 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/loading.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 23:10:28 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/closelabel.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 23:10:31 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/closelabel.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 23:10:31 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/loading.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 23:10:32 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'generatetreelist' at line 1
+Request URL: /dhi/www/www/admin/productgroups/add
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\db\lib\Cake\Model\Datasource\DboSource.php(460): PDOStatement->execute(Array)
+#1 E:\Wamp\www\dhi\www\db\lib\Cake\Model\Datasource\DboSource.php(426): DboSource->_execute('generatetreelis...', Array)
+#2 E:\Wamp\www\dhi\www\db\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('generatetreelis...', Array, Array)
+#3 E:\Wamp\www\dhi\www\db\lib\Cake\Model\Datasource\DboSource.php(611): DboSource->fetchAll('generatetreelis...', Array, Array)
+#4 E:\Wamp\www\dhi\www\db\lib\Cake\Model\Model.php(801): DboSource->query('generatetreelis...', Array, Object(Productgroup))
+#5 E:\Wamp\www\dhi\www\db\index-app\Plugin\Admin\Controller\ProductgroupsController.php(32): Model->__call('generatetreelis...', Array)
+#6 E:\Wamp\www\dhi\www\db\index-app\Plugin\Admin\Controller\ProductgroupsController.php(32): Productgroup->generatetreelist(NULL, NULL, NULL, '+', NULL)
+#7 [internal function]: ProductgroupsController->add()
+#8 E:\Wamp\www\dhi\www\db\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(ProductgroupsController), Array)
+#9 E:\Wamp\www\dhi\www\db\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#10 E:\Wamp\www\dhi\www\db\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(ProductgroupsController), Object(CakeRequest), Object(CakeResponse))
+#11 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2013-12-01 23:10:32 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/closelabel.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 23:10:32 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/loading.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 23:10:57 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/loading.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 23:10:57 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/closelabel.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 23:10:57 Error: [MissingActionException] Action ProductgroupsController::<() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProductgroupsController',
+  'action' => '<',
+)
+Request URL: /dhi/www/www/admin/productgroups/%3C
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\db\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 E:\Wamp\www\dhi\www\db\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(ProductgroupsController), Object(CakeRequest), Object(CakeResponse))
+#2 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-12-01 23:10:58 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/loading.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 23:10:58 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/closelabel.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 23:10:58 Error: [MissingActionException] Action ProductgroupsController::<() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProductgroupsController',
+  'action' => '<',
+)
+Request URL: /dhi/www/www/admin/productgroups/%3C
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\db\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 E:\Wamp\www\dhi\www\db\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(ProductgroupsController), Object(CakeRequest), Object(CakeResponse))
+#2 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-12-01 23:10:58 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/closelabel.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 23:10:58 Error: [MissingControllerException] Controller class Controller could not be found.
+Exception Attributes: array (
+  'class' => 'Controller',
+  'plugin' => NULL,
+)
+Request URL: /dhi/www/www/img/loading.gif
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-12-01 23:10:58 Error: [MissingActionException] Action ProductgroupsController::<() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProductgroupsController',
+  'action' => '<',
+)
+Request URL: /dhi/www/www/admin/productgroups/%3C
+Stack Trace:
+#0 E:\Wamp\www\dhi\www\db\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 E:\Wamp\www\dhi\www\db\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(ProductgroupsController), Object(CakeRequest), Object(CakeResponse))
+#2 E:\Wamp\www\dhi\www\www\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}

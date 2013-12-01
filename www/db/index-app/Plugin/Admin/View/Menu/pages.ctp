@@ -1,3 +1,3 @@
 <?php foreach($pages as $page) {?>
-	<option value='<?=$page['Page']['id']?>'><?=$page['Page']['name']?></option>
+	<option value='<?php echo $page['Page']['id']?>'><?php echo $page['Page']['name']?></option>
 <?php } ?>

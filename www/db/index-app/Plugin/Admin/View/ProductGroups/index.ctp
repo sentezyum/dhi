@@ -6,7 +6,7 @@
 					
 					<h2>ÜRÜN GRUPLARI</h2>
 					<ul>
-						<li><?=$this->Html->link('YENİ ÜRÜN GRUBU OLUŞTUR',Array('controller' => 'productgroups','action' => 'add'));?></li>
+						<li><?php echo $this->Html->link('YENİ ÜRÜN GRUBU OLUŞTUR',Array('controller' => 'productgroups','action' => 'add'));?></li>
 					
 					</ul>
 
@@ -20,9 +20,9 @@
 
 				<table cellpadding="0" cellspacing="0" width="100%">
                     <tr>
-                            <th><?php echo $this->Paginator->sort('Onay','has_confirm');?></th>
-                            <th><?php echo $this->Paginator->sort('Sıra','order');?></th>
-                            <th><?php echo $this->Paginator->sort('Başlık','name');?></th>
+                            <th><?php echo $this->Paginator->sort('has_confirm','Onay');?></th>
+                            <th><?php echo $this->Paginator->sort('order', 'Sıra');?></th>
+                            <th><?php echo $this->Paginator->sort('name', 'Başlık');?></th>
                             <th>&nbsp;</th>
                     </tr>
                     <?php foreach ($productgroups as $Productgroup): ?>

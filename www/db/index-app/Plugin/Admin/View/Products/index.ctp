@@ -6,7 +6,7 @@
 					
 					<h2>ÜRÜNLER</h2>
 					<ul>
-						<li><?=$this->Html->link('YENİ ÜRÜN EKLE',Array('controller' => 'products','action' => 'add'));?></li>
+						<li><?php echo $this->Html->link('YENİ ÜRÜN EKLE',Array('controller' => 'products','action' => 'add'));?></li>
 					
 					</ul>
 
@@ -20,15 +20,15 @@
 
 				<table cellpadding="0" cellspacing="0" width="100%">
                     <tr>
-                            <th><?php echo $this->Paginator->sort('Onay','has_confirm');?></th>
-                            <th><?php echo $this->Paginator->sort('Ürün Grubu','productgroup_id');?></th>
-                            <th><?php echo $this->Paginator->sort('Adı','name');?></th>
+                            <th><?php echo $this->Paginator->sort('has_confirm', 'Onay');?></th>
+                            <th><?php echo $this->Paginator->sort('productgroup_id', 'Ürün Grubu');?></th>
+                            <th><?php echo $this->Paginator->sort('name', 'Adı');?></th>
                             <th>&nbsp;</th>
                     </tr>
                     <?php foreach ($products as $Product): ?>
                     <tr>
                     	<td><?php echo @$this->Html->link(__($confirm[$Product['Product']['has_confirm']], true), array('action' => 'set_confirm', $Product['Product']['id'],$link[$Product['Product']['has_confirm']]));?>&nbsp</td>
-                        <td><?=$Product['Productgroup']['name'];?>&nbsp;</td>
+                        <td><?php echo $Product['Productgroup']['name'];?>&nbsp;</td>
                         <td><?php echo substr($Product['Product']['name'],0,50) . '...'; ?>&nbsp;</td>
                         <td class="delete"><?php echo $this->Html->link(__('Fotoğraf(' . count($Product['Image']) . ')', true),  array('controller'=> 'images','action' => 'index','product',$Product['Product']['id'])); ?> | 
                             <?php echo $this->Html->link(__('Düzenle', true), array('action' => 'edit', $Product['Product']['id'])); ?> |
