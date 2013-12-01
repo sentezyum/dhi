@@ -7,26 +7,25 @@ App::uses('GenelHelper', 'View/Helper');
 class PostsController extends AdminAppController {
 
 	public $name = 'Posts';
+
+	public $uses = array("Post");
+
 	public $paginate = array( 
 	    	'limit' => 50,
 	        'order'    => array( 
 	            'Post.id'    => 'desc') 
-	); 
-	public function beforeFilter() {
-		$module = new ModulesController;
-		$modules = $module->modules;
-		if (!isset($modules['Posts'])) {$this->redirect(array('controller'=>'hata','action' => 'modul_yok','haber'));}
-		$this->set('modules',$modules);
-	}
+	);
+
 	public function index() {
 		$this->set('posts', $this->paginate());
 	}
+
 	public function add() {
-		$Genel = new GenelHelper;
+		$Genel = new GenelHelper(new View());
 		if (!empty($this->data)) {
 			$this->data['Post']['name_tr'] = $Genel->ilk_harf($this->data['Post']['name_tr']);
-                        $this->data['Post']['name_bg'] = $Genel->ilk_harf($this->data['Post']['name_bg']);
-                        $this->data['Post']['name_en'] = $Genel->ilk_harf($this->data['Post']['name_en']);
+			$this->data['Post']['name_bg'] = $Genel->ilk_harf($this->data['Post']['name_bg']);
+            $this->data['Post']['name_en'] = $Genel->ilk_harf($this->data['Post']['name_en']);
 			$this->data['Post']['user_id'] = $this->Session->read('User.id');
 			$this->Post->create();
 			if ($this->Post->save($this->data)) {
@@ -39,15 +38,15 @@ class PostsController extends AdminAppController {
 	}
 
 	public function edit($id = null) {
-		$Genel = new GenelHelper;
+		$Genel = new GenelHelper(new View());
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Invalid image size', true));
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
 			$this->data['Post']['name_tr'] = $Genel->ilk_harf($this->data['Post']['name_tr']);
-                        $this->data['Post']['name_bg'] = $Genel->ilk_harf($this->data['Post']['name_bg']);
-                        $this->data['Post']['name_en'] = $Genel->ilk_harf($this->data['Post']['name_en']);
+            $this->data['Post']['name_bg'] = $Genel->ilk_harf($this->data['Post']['name_bg']);
+            $this->data['Post']['name_en'] = $Genel->ilk_harf($this->data['Post']['name_en']);
 			if ($this->Post->save($this->data)) {
 				$this->Session->setFlash(__('<p>Haber kaydedildi</p>', true),'default',array('class' => 'message info'));
 				$this->redirect(array('action' => 'index'));
@@ -79,10 +78,9 @@ class PostsController extends AdminAppController {
 		}
 		$data['Post']['id'] = $id;
 		$data['Post']['has_confirm'] = $value;
-			$page = $this->{$this->modelClass}->getPageNumber($id, $this->paginate['limit'] , $this->paginate['order']);
 			if ($this->Post->save($data)) {
 				$this->Session->setFlash(__('<p>Haber ayarlandı</p>', true),'default',array('class' => 'message info'));
-				$this->redirect("/" . $this->params['controller'] . "/index/page:{$page}");
+				$this->redirect(array("action" => "index"));
 			}
 		
 		$this->Session->setFlash(__('Haber ayarlanamadı', true));

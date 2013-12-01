@@ -6,7 +6,7 @@
 					
 					<h2>Haberler</h2>
 					<ul>
-						<li><?=$this->Html->link('YENİ HABER',Array('controller' => 'posts','action' => 'add'));?></li>
+						<li><?php echo $this->Html->link('YENİ HABER',Array('controller' => 'posts','action' => 'add'));?></li>
 					
 					</ul>
 
@@ -20,16 +20,16 @@
 
 				<table cellpadding="0" cellspacing="0" width="100%">
                     <tr>
-                            <th><?php echo $this->Paginator->sort('Onay','has_confirm');?></th>
-                            <th><?php echo $this->Paginator->sort('Eklendiği Tarih','created');?></th>
-                            <th><?php echo $this->Paginator->sort('Başlık','name');?></th>
-                            <th>&nbsp;</th>
+                        <th><?php echo $this->Paginator->sort('has_confirm','Onay');?></th>
+                        <th><?php echo $this->Paginator->sort('created','Eklendiği Tarih');?></th>
+                        <th><?php echo $this->Paginator->sort('name','Başlık');?></th>
+                        <th>&nbsp;</th>
                     </tr>
                     <?php foreach ($posts as $Post): ?>
                     <tr>
                     	<td><?php echo @$this->Html->link(__($confirm[$Post['Post']['has_confirm']], true), array('action' => 'set_confirm', $Post['Post']['id'],$link[$Post['Post']['has_confirm']]));?>&nbsp</td>
                         <td class='date'><?php echo $this->Genel->tarih('gun kisaay yil',$Post['Post']['created']); ?><br><?php echo $this->Genel->tarih('saat:dakika',$Post['Post']['created']); ?>&nbsp;</td>
-                        <td><?php echo substr($Post['Post']['name_tr'],0,50) . '...'; ?>&nbsp;</td>
+                        <td><?php echo substr($Post['Post']['name'],0,50) . '...'; ?>&nbsp;</td>
                         <td class="delete"><?php echo $this->Html->link(__('Fotoğraf(' . count($Post['Image']) . ')', true),  array('controller'=> 'images','action' => 'index','post',$Post['Post']['id'])); ?> | 
                             <?php echo $this->Html->link(__('Düzenle', true), array('action' => 'edit', $Post['Post']['id'])); ?> |
                             <?php echo $this->Html->link(__('Sil', true), array('action' => 'delete', $Post['Post']['id']), null, sprintf(__('%s No\'lu Kaydı Silmek İstediğinize Emin misiniz?', true), $Post['Post']['id'])); ?>

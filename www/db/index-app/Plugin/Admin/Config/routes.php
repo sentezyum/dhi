@@ -31,3 +31,6 @@
  * ...and connect the rest of 'Pages' controller's urls.
  */
 	Router::connect('/admin/pages/*', array('plugin' => 'admin', 'controller' => 'pages', 'action' => 'home'));
+
+	Router::connect('/admin/:controller/:action', array('plugin' => 'admin'));
+	Router::connect('/admin/:controller', array('plugin' => 'admin'));

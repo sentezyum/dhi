@@ -7,8 +7,8 @@ class DATABASE_CONFIG {
 		'persistent' => false,
 		'host' => '127.0.0.1',
 		'login' => 'root',
-		'password' => 'root',
-		'database' => 'kulturkoridoru-db',
+		'password' => '',
+		'database' => 'dhi2013',
 		'encoding' => 'utf8'
 	);
 }

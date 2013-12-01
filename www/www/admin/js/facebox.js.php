@@ -79,8 +79,8 @@
     settings: {
       opacity      : 0,
       overlay      : true,
-      loadingImage : '<?=$_GET['webroot']?>img/loading.gif',
-      closeImage   : '<?=$_GET['webroot']?>img/closelabel.gif',
+      loadingImage : '<?php echo $_GET['webroot']?>img/loading.gif',
+      closeImage   : '<?php echo $_GET['webroot']?>img/closelabel.gif',
       imageTypes   : [ 'png', 'jpg', 'jpeg', 'gif' ],
       faceboxHtml  : '\
     <div id="facebox" style="display:none;"> \
@@ -97,7 +97,7 @@
                 </div> \
                 <div class="footer"> \
                   <a href="#" class="close"> \
-                    <img src="<?=$_GET['webroot']?>img/closelabel.gif" title="close" class="close_image" /> \
+                    <img src="<?php echo $_GET['webroot']?>img/closelabel.gif" title="close" class="close_image" /> \
                   </a> \
                 </div> \
               </td> \

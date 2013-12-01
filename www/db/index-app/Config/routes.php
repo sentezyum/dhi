@@ -26,6 +26,8 @@
  * its action called 'display', and we pass a param to select the view file
  * to use (in this case, /app/views/pages/home.ctp)...
  */
+CakePlugin::routes();
+
 Router::connect('/', array('controller' => 'main', 'action' => 'index', 'language' => 'en'));
 Router::connect('/:language/urun_gruplari/:group', array('controller' => 'urun_gruplari', 'action' => 'view'), array('pass' => Array('group', 'language')));
 Router::connect('/urun_gruplari/:group', array('controller' => 'urun_gruplari', 'action' => 'view', 'language' => 'en'), array('pass' => Array('group')));
@@ -33,7 +35,7 @@ Router::connect('/:language',array('controller' => 'main' , 'action' => 'index')
 Router::connect('/:language/:page',array('action' => 'pages'), array('pass' => Array('language', 'page')));
 
 
-CakePlugin::routes();
+
 require CAKE . 'Config' . DS . 'routes.php';
 
         

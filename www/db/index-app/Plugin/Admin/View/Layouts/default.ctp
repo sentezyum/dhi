@@ -13,21 +13,13 @@
     <script type="text/javascript" src="<?php echo $this->Html->url('/admin/js/facebox.js.php?webroot=' . $this->webroot, true); ?>"></script>
 	</head>
 <body>
-
 	<div id="hld">
-	
 		<div class="wrapper">		
-	
-			
 			<div id="header">
 				<div class="hdrl"></div>
-
 				<div class="hdrr"></div>
-				
 				<h1><?php echo $this->Html->image('Admin.logo.png')?></h1>
-				
 				<ul id="nav">
-				
                 <?php foreach ($menu as $page) { ?>
                 	<li style='cursor:pointer;'><?php echo $page['Page']['name']?>
                     	<ul>
@@ -53,23 +45,15 @@
                     </li>
                    <?php } ?>
 				</ul>
-			
 				<p class="user">Hoşgeldiniz, <?php echo $this->Session->read('User.name')?> | <?php echo $this->Html->link('Çıkış',Array('controller' => 'users','action'=>'logout'))?></p>
-
 			</div>
+
 			<?php echo $this->fetch('content'); ?>
 			<div id="footer">
-			
-				<p class="left"><a href="http://www.emin-teknik.com" title='Emin Teknik'>Emin-Teknik.com</a></p>
-
-				<p class="right">coded by <a href="http://www.renklikalem.com" title="Renkli Kalem">RenkliKalem.com</a> v3.1</p>
-				
+				<p class="left"><?php echo $this->Html->link($_SERVER['HTTP_HOST'], '/');?></p>
+				<p class="right">coded by <?php echo panel_fact;?> v3.1</p>
 			</div>
-		
-		
 		</div>						
-		
-	</div>		
-	
+	</div>
 </body>
 </html>

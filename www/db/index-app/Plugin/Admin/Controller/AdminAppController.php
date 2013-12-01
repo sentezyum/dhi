@@ -44,4 +44,16 @@ class AdminAppController extends AppController {
 			$this->set('menu', $menu);
 		}
 	}
+
+	public function redirect($data) {
+		if (is_array($data)) {
+			if (!isset($data["plugin"])) {
+				$data["plugin"] = $this->params->plugin;
+			}
+			if (!isset($data["controller"])) {
+				$data["controller"] = $this->params->controller;
+			}
+		}
+		parent::redirect($data);
+	}
 }
