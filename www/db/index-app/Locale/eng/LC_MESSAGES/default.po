@@ -1,0 +1,23 @@
+msgid "Bağlantılar"
+msgstr "Links"
+
+msgid "Dil Seçiniz"
+msgstr "Select Language"
+
+msgid "İletişim"
+msgstr "Contact"
+
+msgid "Ad"
+msgstr "First Name"
+
+msgid "Soyad"
+msgstr "Last Name"
+
+msgid "E-Mail Adresi"
+msgstr "E-Mail Address"
+
+msgid "Üye Ol"
+msgstr "Sign Up"
+
+msgid "Haberler"
+msgstr "News"

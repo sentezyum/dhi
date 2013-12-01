@@ -1,0 +1,36 @@
+msgid "January"
+msgstr "Ocak"
+
+msgid "February"
+msgstr "Þubat"
+
+msgid "March"
+msgstr "Mart"
+
+msgid "April"
+msgstr "Nisan"
+
+msgid "May"
+msgstr "Mayýs"
+
+msgid "June"
+msgstr "Haziran"
+
+msgid "July"
+msgstr "Temmuz"
+
+msgid "August"
+msgstr "Aðustos"
+
+msgid "September"
+msgstr "Eylül"
+
+msgid "October"
+msgstr "Ekim"
+
+msgid "November"
+msgstr "Kasým"
+
+msgid "December"
+msgstr "Aralýk"
+

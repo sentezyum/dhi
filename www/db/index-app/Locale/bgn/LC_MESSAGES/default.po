@@ -1,0 +1,23 @@
+﻿msgid "Bağlantılar"
+msgstr "Линкове"
+
+msgid "Dil Seçiniz"
+msgstr "Изберете език"
+
+msgid "İletişim"
+msgstr "Контакти"
+
+msgid "Ad"
+msgstr "Име"
+
+msgid "Soyad"
+msgstr "Презиме"
+
+msgid "E-Mail Adresi"
+msgstr "Eлектронна Поща"
+
+msgid "Üye Ol"
+msgstr "Регистрация"
+
+msgid "Haberler"
+msgstr "Hовини"
