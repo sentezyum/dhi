@@ -43,10 +43,7 @@ class PostsController extends AdminAppController {
 			$this->Session->setFlash(__('Invalid image size', true));
 			$this->redirect(array('action' => 'index'));
 		}
-		if (!empty($this->data)) {
-			$this->data['Post']['name_tr'] = $Genel->ilk_harf($this->data['Post']['name_tr']);
-            $this->data['Post']['name_bg'] = $Genel->ilk_harf($this->data['Post']['name_bg']);
-            $this->data['Post']['name_en'] = $Genel->ilk_harf($this->data['Post']['name_en']);
+		if (!empty($this->data)) {            
 			if ($this->Post->save($this->data)) {
 				$this->Session->setFlash(__('<p>Haber kaydedildi</p>', true),'default',array('class' => 'message info'));
 				$this->redirect(array('action' => 'index'));

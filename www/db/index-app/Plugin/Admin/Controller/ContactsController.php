@@ -8,75 +8,73 @@ class ContactsController extends AdminAppController {
 
 	public $name = 'Contacts';
     
-    public $uses = 'Contactgroup';
+    public $uses = array('Contactgroup');
 	
 	public $paginate = array(
 	    	'limit' => 50,
 	        'order'    => array(
 	            'Contactgroup.id'    => 'desc')
 	);
+
 	public function index() {
 		$this->set('contactgroups', $this->paginate());
 	}
+
 	public function add() {
-		$Genel = new GenelHelper;
-		if (!empty($this->data)) {
-					$this->data['Contactgroup']['name'] = $Genel->ilk_harf($this->data['Contactgroup']['name']);
-					$this->Contactgroup->create();
-					if ($this->Contactgroup->save($this->data)) {
-						$contactgroupId = $this->Contactgroup->id;
-						foreach ($this->data['Secenekler'] as $key => $secenek) {
-                                                        $a = explode("_",$key);
-                                                        $a = $a[1];
-							$data = Array();
-							$data['Contact']['name'] = $this->data['Names']['name_' . $a];
-							$data['Contact']['contactgroup_id'] = $contactgroupId;
-							$data['Contact']['value'] = $this->data['Values']['value_' . $a];
-							$this->Contactgroup->Contact->create();
-							$this->Contactgroup->Contact->save($data);
-						}
-						$this->Session->setFlash(__('<p>İletişim kaydedildi</p>', true),'default',array('class' => 'message info'));
-						$this->redirect(array('action' => 'index'));
-					} else {
-						$this->Session->setFlash(__('<p>İletişim kaydedilemedi</p>', true),'default',array('class' => 'message info'));
-					}
+		if (!empty($this->params->data)) {
+			$this->Contactgroup->create();
+			if ($this->Contactgroup->save($this->params->data)) {
+				$contactgroupId = $this->Contactgroup->id;
+				foreach ($this->params->data['Secenekler'] as $key => $secenek) {
+                    $a = explode("_",$key);
+                    $a = $a[1];
+					$data = Array();
+					$data['Contact']['name'] = $this->params->data['Names']['name_' . $a];
+					$data['Contact']['contactgroup_id'] = $contactgroupId;
+					$data['Contact']['value'] = $this->params->data['Values']['value_' . $a];
+					$this->Contactgroup->Contact->create();
+					$this->Contactgroup->Contact->save($data);
+				}
+				$this->Session->setFlash(__('<p>İletişim kaydedildi</p>', true),'default',array('class' => 'message info'));
+				$this->redirect(array('action' => 'index'));
+			} else {
+				$this->Session->setFlash(__('<p>İletişim kaydedilemedi</p>', true),'default',array('class' => 'message info'));
+			}
 		}
 	}
 
 	public function edit($id = null) {
-		$Genel = new GenelHelper;
-		if (!empty($this->data)) {
-					$this->data['Contactgroup']['name'] = $Genel->ilk_harf($this->data['Contactgroup']['name']);
-					if ($this->Contactgroup->save($this->data)) {
-						$this->Contactgroup->Contact->deleteAll(Array('Contact.contactgroup_id' => $id));
-						if (isset($this->data['Secenekler'])) {
-							foreach ($this->data['Secenekler'] as $key => $secenek) {
-                                                        $a = explode("_",$key);
-                                                        $a = $a[1];
-								$data = Array();
-								$data['Contact']['name'] = $this->data['Names']['name_' . $a];
-								$data['Contact']['contactgroup_id'] = $id;
-								$data['Contact']['value'] = $this->data['Values']['value_' . $a];
-								$data['Contact']['order'] = $this->data['Orders']['order_' . $a];
-								$this->Contactgroup->Contact->create();
-								$this->Contactgroup->Contact->save($data);
-							}
-						}
-						$this->Session->setFlash(__('<p>İletişim kaydedildi</p>', true),'default',array('class' => 'message info'));
-						$this->redirect(array('action' => 'index'));
-					} else {
-						$this->Session->setFlash(__('<p>İletişim kaydedilemedi</p>', true),'default',array('class' => 'message info'));
+		if (!empty($this->params->data)) {
+			if ($this->Contactgroup->save($this->params->data)) {
+				$this->Contactgroup->Contact->deleteAll(Array('Contact.contactgroup_id' => $id));
+				if (isset($this->params->data['Secenekler'])) {
+					foreach ($this->params->data['Secenekler'] as $key => $secenek) {
+                        $a = explode("_",$key);
+                        $a = $a[1];
+						$data = Array();
+						$data['Contact']['name'] = $this->params->data['Names']['name_' . $a];
+						$data['Contact']['contactgroup_id'] = $id;
+						$data['Contact']['value'] = $this->params->data['Values']['value_' . $a];
+						$data['Contact']['order'] = $this->params->data['Orders']['order_' . $a];
+						$this->Contactgroup->Contact->create();
+						$this->Contactgroup->Contact->save($data);
 					}
+				}
+				$this->Session->setFlash(__('<p>İletişim kaydedildi</p>', true),'default',array('class' => 'message info'));
+				$this->redirect(array('action' => 'index'));
+			} else {
+				$this->Session->setFlash(__('<p>İletişim kaydedilemedi</p>', true),'default',array('class' => 'message info'));
+			}
 		}
-		if (empty($this->data)) {
-			$this->data = $this->Contactgroup->read(null, $id);
+		if (empty($this->params->data)) {
+			$this->params->data = $this->Contactgroup->read(null, $id);
 			$imprintValues = $this->Contactgroup->Contact->Find('all',Array('conditions' => Array('Contact.contactgroup_id' => $id),'order' => 'Contact.order ASC'));
 			$a = 1;
 			foreach ($imprintValues as $imprintValue) {
-				$this->data['Secenekler']['secenek_' . $a] = 1;
-				$this->data['Names']['name_' . $a] = $imprintValue['Contact']['name'];
-				$this->data['Values']['value_' . $a] = $imprintValue['Contact']['value'];
-				$this->data['Orders']['order_' . $a] = $imprintValue['Contact']['order'];
+				$this->params->data['Secenekler']['secenek_' . $a] = 1;
+				$this->params->data['Names']['name_' . $a] = $imprintValue['Contact']['name'];
+				$this->params->data['Values']['value_' . $a] = $imprintValue['Contact']['value'];
+				$this->params->data['Orders']['order_' . $a] = $imprintValue['Contact']['order'];
 				$a++;
 			}
 		}
@@ -95,6 +93,7 @@ class ContactsController extends AdminAppController {
 		$this->Session->setFlash(__('Image size was not deleted', true));
 		$this->redirect(array('action' => 'index'));
 	}
+
 	public function set_confirm($id = null,$value = 1) {
 		if (!$id) {
 			$this->Session->setFlash(__('<p>Yanlış Anket</p>', true),'default',array('class' => 'message info'));

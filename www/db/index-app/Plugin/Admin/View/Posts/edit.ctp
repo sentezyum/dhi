@@ -30,7 +30,7 @@
 
 				<?php foreach (Configure::read('lang') as $lang) { ?>
 					<p>
-						<?php echo $this->Form->input('value_' . ($lang != Configure::read('base_lang') ? '_' . $lang : ''), array('label' => array('text' =>'Haber Detayı (' . $lang . ') :','class' => 'req'),'class' => 'wysiwyg','type' => 'textarea', 'autocomplete' => 'off','between' => '<br/>','error' => array('wrap' => 'span','class' => 'note error')));?>
+						<?php echo $this->Form->input('value' . ($lang != Configure::read('base_lang') ? '_' . $lang : ''), array('label' => array('text' =>'Haber Detayı (' . $lang . ') :','class' => 'req'),'class' => 'wysiwyg','type' => 'textarea', 'autocomplete' => 'off','between' => '<br/>','error' => array('wrap' => 'span','class' => 'note error')));?>
 					</p>	
 				<?php } ?>
 				<p>

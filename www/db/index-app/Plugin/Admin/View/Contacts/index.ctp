@@ -6,7 +6,7 @@
 					
 					<h2>İLETİŞİM BİLGİLERİ</h2>
 					<ul>
-						<li><?=$this->Html->link('YENİ İLETİŞİM BİLGİSİ EKLE',Array('controller' => 'contacts','action' => 'add'));?></li>
+						<li><?php echo $this->Html->link('YENİ İLETİŞİM BİLGİSİ EKLE',Array('controller' => 'contacts','action' => 'add'));?></li>
 					</ul>
 
 				</div>		<!-- .block_head ends --> 
@@ -20,7 +20,7 @@
 				<table cellpadding="0" cellspacing="0" width="100%">
                     <tr>
                             
-                            <th><?php echo $this->Paginator->sort('Başlık','name');?></th>
+                            <th><?php echo $this->Paginator->sort('name','Başlık');?></th>
                             <th>&nbsp;</th>
                     </tr>
                     <?php foreach ($contactgroups as $Contactgroup): ?>

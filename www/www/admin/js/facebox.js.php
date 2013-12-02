@@ -1,4 +1,5 @@
-﻿/*
+﻿<?php header("Content-Type: text/javascript; charset=utf-8");  ?>
+/*
  * Facebox (for jQuery)
  * version: 1.2 (05/05/2008)
  * @requires jQuery v1.2 or later
@@ -79,8 +80,8 @@
     settings: {
       opacity      : 0,
       overlay      : true,
-      loadingImage : '<?php echo $_GET['webroot']?>img/loading.gif',
-      closeImage   : '<?php echo $_GET['webroot']?>img/closelabel.gif',
+      loadingImage : '<?php echo $_GET['webroot']?>/admin/img/loading.gif',
+      closeImage   : '<?php echo $_GET['webroot']?>/admin/img/closelabel.gif',
       imageTypes   : [ 'png', 'jpg', 'jpeg', 'gif' ],
       faceboxHtml  : '\
     <div id="facebox" style="display:none;"> \

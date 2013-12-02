@@ -6,7 +6,7 @@
 					
 					<h2>SAYFALAR</h2>
 					<ul>
-						<li><?=$this->Html->link('YENİ SAYFA',Array('controller' => 'staticpages','action' => 'add'));?></li>
+						<li><?php echo $this->Html->link('YENİ SAYFA',Array('controller' => 'staticpages','action' => 'add'));?></li>
 					</ul>
 
 				</div>		<!-- .block_head ends --> 
@@ -19,12 +19,12 @@
 
 				<table cellpadding="0" cellspacing="0" width="100%">
                     <tr>
-                            <th><?php echo $this->Paginator->sort('Başlık','name');?></th>
+                            <th><?php echo $this->Paginator->sort('name', 'Başlık');?></th>
                             <th>&nbsp;</th>
                     </tr>
                     <?php foreach ($staticpages as $staticpage): ?>
                     <tr>
-                        <td><?php echo substr($staticpage['Staticpage']['name_tr'],0,150) . '...'; ?>&nbsp;</td>
+                        <td><?php echo substr($staticpage['Staticpage']['name'],0,150) . '...'; ?>&nbsp;</td>
                         <td class="delete"><?php echo $this->Html->link(__('Fotoğraf(' . count($staticpage['Image']) . ')', true),  array('controller'=> 'images','action' => 'index','staticpage',$staticpage['Staticpage']['id'])); ?> | 
                             <?php echo $this->Html->link(__('Düzenle', true), array('action' => 'edit', $staticpage['Staticpage']['id'])); ?> |
                             <?php echo $this->Html->link(__('Sil', true), array('action' => 'delete', $staticpage['Staticpage']['id']), null, sprintf(__('%s No\'lu Kaydı Silmek İstediğinize Emin misiniz?', true), $staticpage['Staticpage']['id'])); ?>

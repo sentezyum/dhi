@@ -1,4 +1,5 @@
-﻿jQuery.extend(DateInput.DEFAULT_OPTS, {
+﻿<?php header("Content-Type: text/javascript; charset=utf-8");  ?>
+jQuery.extend(DateInput.DEFAULT_OPTS, {
   month_names: ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"],
   short_month_names: ["Oca", "Şub", "Mar", "Nis", "May", "Haz", "Tem", "Ağu", "Eyl", "Ekim", "Kas", "Ara"],
   short_day_names: ["Pzr", "Pzt", "Sal", "Çrş", "Prş", "Cum", "Cmt"]
@@ -76,7 +77,7 @@ $(function () {
 		
 	
 	// Set WYSIWYG editor
-	$('.wysiwyg').wysiwyg({css: "<?=$_GET['webroot'] . 'css/wysiwyg.css'?>"});
+	$('.wysiwyg').wysiwyg({css: "<?php echo $_GET['webroot'] . '/admin/css/wysiwyg.css'?>"});
 	
 	
 	// Modal boxes - to all links with rel="facebox"
@@ -155,7 +156,7 @@ $(function () {
 	
 	// Style file input
 	$("input[type=file]").filestyle({ 
-	    image: "<?=$_GET['webroot'] . 'img/upload.gif'?>",
+	    image: "<?php echo $_GET['webroot'] . '/img/upload.gif'?>",
 	    imageheight : 30,
 	    imagewidth : 80,
 	    width : 250

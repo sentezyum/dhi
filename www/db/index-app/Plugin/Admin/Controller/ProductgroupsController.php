@@ -19,37 +19,37 @@ class ProductgroupsController extends AdminAppController {
 		
 	}
 	public function add() {
-		if (!empty($this->data)) {
-			if ($this->data['Productgroup']['order'] == "") {$this->data['Productgroup']['order'] = 10000;}
+		if (!empty($this->params->data)) {
+			if ($this->params->data['Productgroup']['order'] == "") {$this->params->data['Productgroup']['order'] = 10000;}
 			$this->Productgroup->create();
-			if ($this->Productgroup->save($this->data)) {
+			if ($this->Productgroup->save($this->params->data)) {
 				$this->Session->setFlash(__('<p>Ürün grubu kaydedildi</p>', true),'default',array('class' => 'message info'));
 				$this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('<p>Ürün grubu kaydedilemedi</p>', true),'default',array('class' => 'message info'));
 			}
 		}
-		$this->set('groups', $this->Productgroup->generateTreeList($conditions=null, $keyPath=null, $valuePath=null, $spacer= '+', $recursive=null));
+		$this->set('groups', $this->Productgroup->generateTreeList(null, $keyPath=null, $valuePath=null, $spacer= '+', $recursive=null));
 	}
 
 	public function edit($id = null) {
-		if (!$id && empty($this->data)) {
+		if (!$id && empty($this->params->data)) {
 			$this->Session->setFlash(__('Yanlış ürün grubu', true));
 			$this->redirect(array('action' => 'index'));
 		}
-		if (!empty($this->data)) {
-			if ($this->data['Productgroup']['order'] == "") {$this->data['Productgroup']['order'] = 10000;}
-			if ($this->Productgroup->save($this->data)) {
+		if (!empty($this->params->data)) {
+			if ($this->params->data['Productgroup']['order'] == "") {$this->params->data['Productgroup']['order'] = 10000;}
+			if ($this->Productgroup->save($this->params->data)) {
 				$this->Session->setFlash(__('<p>Ürün grubu kaydedildi</p>', true),'default',array('class' => 'message info'));
 				$this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('<p>Ürün grubu kaydedilemedi</p>', true),'default',array('class' => 'message info'));
 			}
 		}
-		if (empty($this->data)) {
-			$this->data = $this->Productgroup->read(null, $id);
+		if (empty($this->params->data)) {
+			$this->params->data = $this->Productgroup->read(null, $id);
 		}
-		$this->set('groups', $this->Productgroup->generateTreeList($conditions=null, $keyPath=null, $valuePath=null, $spacer= '+', $recursive=null));
+		$this->set('groups', $this->Productgroup->generateTreeList(null, $keyPath=null, $valuePath=null, $spacer= '+', $recursive=null));
 	}
 
 	public function delete($id = null) {
