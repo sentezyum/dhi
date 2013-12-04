@@ -1,6 +1,6 @@
-<script type="text/javascript">var wbtrt = '<?=$this->webroot?>';</script>
-<?=$this->Html->script(Array('ui/jquery.ui.core.min','ui/jquery.ui.widget.min','ui/jquery.ui.mouse.min','ui/jquery.ui.dialog.min','ui/jquery.ui.position.min','ui/jquery.ui.resizable.min','ui/jquery.ui.draggable.min.js'));?>
-                	<?php if (@$settings['has_many_image'] == 1 OR !isset($images[0]['Image'])) { ?>
+<script type="text/javascript">var wbtrt = '<?php echo $this->webroot?>';</script>
+<?php echo $this->Html->script(Array('Admin.ui/jquery.ui.core.min','Admin.ui/jquery.ui.widget.min','Admin.ui/jquery.ui.mouse.min','Admin.ui/jquery.ui.dialog.min','Admin.ui/jquery.ui.position.min','Admin.ui/jquery.ui.resizable.min','Admin.ui/jquery.ui.draggable.min.js'));?>
+		<?php if (@$settings['has_many_image'] == 1 OR !isset($images[0]['Image'])) { ?>
 			<div class="block"> 
 			
 				<div class="block_head"> 
@@ -9,7 +9,7 @@
 					
 					<h2>YENİ FOTOĞRAF</h2>
 					<ul>
-						<li><?=$this->Html->link($links[$model]['viewp'] . ' GERİ DÖN' ,Array('controller' => $links[$model]['link'],'action' => 'index','page' => $page));?></li>
+						<li><?php echo $this->Html->link($links[$model]['viewp'] . ' GERİ DÖN' ,Array('controller' => $links[$model]['link'],'action' => 'index','page' => $page));?></li>
 					</ul>
 
 				</div>		<!-- .block_head ends --> 
@@ -70,9 +70,9 @@ function limitText(limitField, limitCount, limitNum) {
 					<div class="bheadl"></div> 
 					<div class="bheadr"></div> 
 					
-					<h2><?=$links[$model]['views']?> FOTOĞRAFLARI</h2>
+					<h2><?php echo $links[$model]['views']?> FOTOĞRAFLARI</h2>
 					<ul>
-						<li><?=$this->Html->link($links[$model]['viewp'] . ' GERİ DÖN' ,Array('controller' => $links[$model]['link'],'action' => 'index','page' => $page));?></li>
+						<li><?php echo $this->Html->link($links[$model]['viewp'] . ' GERİ DÖN' ,Array('controller' => $links[$model]['link'],'action' => 'index','page' => $page));?></li>
 					</ul>
 
 				</div>		<!-- .block_head ends --> 
@@ -83,10 +83,10 @@ function limitText(limitField, limitCount, limitNum) {
 					<ul class="imglist">
 						<?php foreach ($images as $image) {?>
 							<li>
-								<?=$this->Html->image('thumbs/' . $model . '_' . $image['Image']['id'] . '.' . $image['Image']['ext']);?>
+								<?php echo $this->Html->image('thumbs/' . $model . '_' . $image['Image']['id'] . '.' . $image['Image']['ext']);?>
 								<ul>
 									<?php if(isset($settings['default_image_size_name'])) { ?>
-									<li class="view"><?=$this->Html->link('DÜZENLE','#',Array('onclick' => '$("#' . $image['Image']['id'] . '_img").dialog("open");'));?>
+									<li class="view"><?php echo $this->Html->link('DÜZENLE','#',Array('onclick' => '$("#' . $image['Image']['id'] . '_img").dialog("open");'));?>
 									<?php } ?>
 								<li class="delete"><?php echo $this->Html->link(__('SİL', true), array('action' => 'delete', $model,$id,$image['Image']['id'])); ?></li>
 							</ul>
@@ -94,7 +94,7 @@ function limitText(limitField, limitCount, limitNum) {
 							
 							
 							
-							<div id="<?=$image['Image']['id']?>_img" class="block dlga" title="Düzenle">
+							<div id="<?php echo $image['Image']['id']?>_img" class="block dlga" title="Düzenle">
 				<?php echo $this->Html->image('../../img/resimler/' . $model . '_' . $settings['default_image_size_name'] . '_' . $image['Image']['id'] . '.' . $image['Image']['ext']);?>
 				 <?php echo $this->Form->create('Image',Array('encoding' => Null,'action' => 'index/' . $model . '/' . $id,'type' => 'file','id' => $image['Image']['id'] . '_frm'));?>
 

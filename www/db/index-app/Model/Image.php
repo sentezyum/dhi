@@ -5,7 +5,6 @@ App::uses('AppModel', 'Model');
 class Image extends AppModel {
 	var $name = 'Image';
 	var $displayField = 'name';
-	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 	var $belongsTo = array(
 		'Post' => array(
@@ -32,13 +31,6 @@ class Image extends AppModel {
 		'User' => array(
 			'className' => 'User',
 			'foreignKey' => 'user_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
-		),
-		'PostCategory' => array(
-			'className' => 'PostCategory',
-			'foreignKey' => 'post_category_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
@@ -88,7 +80,9 @@ class Image extends AppModel {
 			'counterQuery' => ''
 		)
 	);
-		function getImages($sources = Array(),$model = Null) {
+	
+
+	public function getImages($sources = Array(),$model = Null) {
 		if ($model != Null) {
 			$modelTable = ucfirst($model);
 			$output = Array();

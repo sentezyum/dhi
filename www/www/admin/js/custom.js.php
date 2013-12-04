@@ -156,7 +156,7 @@ $(function () {
 	
 	// Style file input
 	$("input[type=file]").filestyle({ 
-	    image: "<?php echo $_GET['webroot'] . '/img/upload.gif'?>",
+	    image: "<?php echo $_GET['webroot'] . '/admin/img/upload.gif'?>",
 	    imageheight : 30,
 	    imagewidth : 80,
 	    width : 250

@@ -1,308 +1,447 @@
 <?php
-/** 
- * File Validation Behavior
- *
- * A CakePHP Behavior that adds validation model rules to file uploading.
- *
- * @author      Miles Johnson - http://milesj.me
- * @copyright   Copyright 2006-2011, Miles Johnson, Inc.
- * @license     http://opensource.org/licenses/mit-license.php - Licensed under The MIT License
+/**
+ * @copyright   2006-2013, Miles Johnson - http://milesj.me
+ * @license     https://github.com/milesj/uploader/blob/master/license.md
  * @link        http://milesj.me/code/cakephp/uploader
  */
 
-App::import('Component', 'Uploader.Uploader');
-Configure::load('Uploader.config');
+App::uses('ModelBehavior', 'Model');
 
+use Transit\File;
+use Transit\Validator\ImageValidator;
+
+/**
+ * A CakePHP Behavior that adds validation model rules to file uploading.
+ */
 class FileValidationBehavior extends ModelBehavior {
 
-	/**
-	 * Current settings.
-	 *
-	 * @access protected
-	 * @var array
-	 */
-	protected $_settings = array();
+    /**
+     * Default list of validation sets.
+     *
+     * @type array
+     */
+    protected $_defaults = array(
+        'width' => array(
+            'rule' => array('width'),
+            'message' => 'Your image width is invalid; required width is %s'
+        ),
+        'height' => array(
+            'rule' => array('height'),
+            'message' => 'Your image height is invalid; required height is %s'
+        ),
+        'minWidth' => array(
+            'rule' => array('minWidth'),
+            'message' => 'Your image width is too small; minimum width %s'
+        ),
+        'minHeight' => array(
+            'rule' => array('minHeight'),
+            'message' => 'Your image height is too small; minimum height %s'
+        ),
+        'maxWidth' => array(
+            'rule' => array('maxWidth'),
+            'message' => 'Your image width is too large; maximum width %s'
+        ),
+        'maxHeight' => array(
+            'rule' => array('maxHeight'),
+            'message' => 'Your image height is too large; maximum height %s'
+        ),
+        'filesize' => array(
+            'rule' => array('filesize'),
+            'message' => 'Your file size is too large; maximum size %s'
+        ),
+        'extension' => array(
+            'rule' => array('extension'),
+            'message' => 'Your file extension is not allowed; allowed extensions: %s'
+        ),
+        'type' => array(
+            'rule' => array('type'),
+            'message' => 'Your file type is not allowed; allowed types: %s'
+        ),
+        'mimeType' => array(
+            'rule' => array('mimeType'),
+            'message' => 'Your file type is not allowed; allowed types: %s'
+        ),
+        'required' => array(
+            'rule' => array('required'),
+            'message' => 'This file is required',
+            'on' => 'create',
+            'allowEmpty' => true
+        )
+    );
 
-	/**
-	 * Default list of validation sets.
-	 *
-	 * @access protected
-	 * @var array
-	 */
-	protected $_validations = array(
-		'minWidth' => array(
-			'rule' => array('minWidth'),
-			'message' => 'Your image width is too small'
-		),
-		'minHeight' => array(
-			'rule' => array('minHeight'),
-			'message' => 'Your image height is too small'
-		),
-		'maxWidth' => array(
-			'rule' => array('maxWidth'),
-			'message' => 'Your image width is too large'
-		),
-		'maxHeight' => array(
-			'rule' => array('maxHeight'),
-			'message' => 'Your image height is too large'
-		),
-		'filesize' => array(
-			'rule' => array('filesize'),
-			'message' => 'Your filesize is too large'
-		),
-		'extension' => array(
-			'rule' => array('extension'),
-			'message' => 'Your file type is not allowed'
-		),
-		'required' => array(
-			'rule' => array('required'),
-			'message' => 'This file is required'
-		)
-	);
+    /**
+     * Generated list of validation rules.
+     *
+     * @type array
+     */
+    protected $_validations = array();
 
-	/**
-	 * Setup the validation and model settings.
-	 *
-	 * @access public
-	 * @param object $Model
-	 * @param array $settings
-	 * @return void
-	 */
-	public function setup($Model, array $settings = array()) {
-		$this->Uploader = new UploaderComponent();
+    /**
+     * Temporary file used for validation only.
+     *
+     * @type \Transit\File
+     */
+    protected $_tempFile;
 
-		if (!empty($settings) && is_array($settings)) {
-			foreach ($settings as $field => $options) {
-				$this->_settings[$Model->alias][$field] = $options + array('required' => true);
-			}
-		}
-	}
+    /**
+     * Setup the validation and model settings.
+     *
+     * @param Model $model
+     * @param array $settings
+     */
+    public function setup(Model $model, $settings = array()) {
+        if ($settings) {
+            foreach ($settings as $field => $options) {
+                $this->settings[$model->alias][$field] = $options + array('required' => true);
+            }
+        }
+    }
 
-	/**
-	 * Validates an image filesize. Default max size is 5 MB.
-	 *
-	 * @access public
-	 * @param object $Model
-	 * @param array $data
-	 * @param int $size
-	 * @return boolean
-	 */
-	public function filesize($Model, $data, $size = 5242880) {
-		if (empty($size) || !is_numeric($size)) {
-			$size = 5242880;
-		}
+    /**
+     * Validates an image file size. Default max size is 5 MB.
+     *
+     * @param Model $model
+     * @param array $data
+     * @param int $size
+     * @return bool
+     */
+    public function filesize(Model $model, $data, $size = 5242880) {
+        return $this->_validate($model, $data, 'size', array($size));
+    }
 
-		foreach ($data as $fieldName => $field) {
-			if (!$this->_settings[$Model->alias][$fieldName]['required'] && empty($field['tmp_name'])) {
-				return true;
-			} else if (empty($field['tmp_name'])) {
-				return false;
-			}
+    /**
+     * Checks that the image height is exact.
+     *
+     * @param Model $model
+     * @param array $data
+     * @param int $size
+     * @return bool
+     */
+    public function height(Model $model, $data, $size) {
+        return $this->_validate($model, $data, 'height', array($size));
+    }
 
-			return ($field['size'] <= $size);
-		}
+    /**
+     * Checks that the image width is exact.
+     *
+     * @param Model $model
+     * @param array $data
+     * @param int $size
+     * @return bool
+     */
+    public function width(Model $model, $data, $size) {
+        return $this->_validate($model, $data, 'width', array($size));
+    }
 
-		return true;
-	}
+    /**
+     * Checks the maximum image height.
+     *
+     * @param Model $model
+     * @param array $data
+     * @param int $size
+     * @return bool
+     */
+    public function maxHeight(Model $model, $data, $size) {
+        return $this->_validate($model, $data, 'maxHeight', array($size));
+    }
 
-	/**
-	 * Checks the maximum image height.
-	 *
-	 * @access public
-	 * @param object $Model
-	 * @param array $data
-	 * @param int $size
-	 * @return boolean
-	 */
-	public function maxHeight($Model, $data, $size = 100) {
-		return $this->_validateImage($Model, $data, 'maxHeight', $size);
-	}
+    /**
+     * Checks the maximum image width.
+     *
+     * @param Model $model
+     * @param array $data
+     * @param int $size
+     * @return bool
+     */
+    public function maxWidth(Model $model, $data, $size) {
+        return $this->_validate($model, $data, 'maxWidth', array($size));
+    }
 
-	/**
-	 * Checks the maximum image width.
-	 *
-	 * @access public
-	 * @param object $Model
-	 * @param array $data
-	 * @param int $size
-	 * @return boolean
-	 */
-	public function maxWidth($Model, $data, $size = 100) {
-		return $this->_validateImage($Model, $data, 'maxWidth', $size);
-	}
+    /**
+     * Checks the minimum image height.
+     *
+     * @param Model $model
+     * @param array $data
+     * @param int $size
+     * @return bool
+     */
+    public function minHeight(Model $model, $data, $size) {
+        return $this->_validate($model, $data, 'minHeight', array($size));
+    }
 
-	/**
-	 * Checks the minimum image height.
-	 *
-	 * @access public
-	 * @param object $Model
-	 * @param array $data
-	 * @param int $size
-	 * @return boolean
-	 */
-	public function minHeight($Model, $data, $size = 100) {
-		return $this->_validateImage($Model, $data, 'minHeight', $size);
-	}
+    /**
+     * Checks the minimum image width.
+     *
+     * @param Model $model
+     * @param array $data
+     * @param int $size
+     * @return bool
+     */
+    public function minWidth(Model $model, $data, $size) {
+        return $this->_validate($model, $data, 'minWidth', array($size));
+    }
 
-	/**
-	 * Checks the minimum image width.
-	 *
-	 * @access public
-	 * @param object $Model
-	 * @param array $data
-	 * @param int $size
-	 * @return boolean
-	 */
-	public function minWidth($Model, $data, $size = 100) {
-		return $this->_validateImage($Model, $data, 'minWidth', $size);
-	}
+    /**
+     * Validates the extension.
+     *
+     * @param Model $model
+     * @param array $data
+     * @param array $allowed
+     * @return bool
+     */
+    public function extension(Model $model, $data, array $allowed = array()) {
+        return $this->_validate($model, $data, 'ext', array($allowed));
+    }
 
-	/**
-	 * Validates the ext and mimetype.
-	 *
-	 * @access public
-	 * @param object $Model
-	 * @param array $data
-	 * @param array $allowed
-	 * @return boolean
-	 */
-	public function extension($Model, $data, array $allowed = array()) {
-		foreach ($data as $fieldName => $field) {
-			if (!$this->_settings[$Model->alias][$fieldName]['required'] && empty($field['tmp_name'])) {
-				return true;
-			} else if (empty($field['tmp_name'])) {
-				return false;
-			} else {
-				$ext = $this->Uploader->ext($field['name']);
-			}
+    /**
+     * Validates the type, e.g., image.
+     *
+     * @param Model $model
+     * @param array $data
+     * @param array $allowed
+     * @return bool
+     */
+    public function type(Model $model, $data, array $allowed = array()) {
+        return $this->_validate($model, $data, 'type', array($allowed));
+    }
 
-			if (!$this->Uploader->checkMimeType($ext, $field['type']) || (!empty($allowed) && !in_array($ext, $allowed))) {
-				return false;
-			}
-		}
+    /**
+     * Validates the mime type, e.g., image/jpeg.
+     *
+     * @param Model $model
+     * @param array $data
+     * @param array|string $mimeType
+     * @return bool
+     */
+    public function mimeType(Model $model, $data, $mimeType) {
+        return $this->_validate($model, $data, 'mimeType', array($mimeType));
+    }
 
-		return true;
-	}
+    /**
+     * Makes sure a file field is required and not optional.
+     *
+     * @param Model $model
+     * @param array $data
+     * @param bool $required
+     * @return bool
+     */
+    public function required(Model $model, $data, $required = true) {
+        foreach ($data as $value) {
+            if ($required && $this->_isEmpty($value)) {
+                return false;
+            }
+        }
 
-	/**
-	 * Makes sure a file field is required and not optional.
-	 *
-	 * @access public
-	 * @param object $Model
-	 * @param array $data
-	 * @return boolean
-	 */
-	public function required($Model, $data) {
-		foreach ($data as $fieldName => $field) {
-			$required = $this->_settings[$Model->alias][$fieldName]['required'];
+        return true;
+    }
 
-			if (is_array($required)) {
-				$required = $required['value'];
-			}
+    /**
+     * Build the validation rules and validate.
+     *
+     * @param Model $model
+     * @param array $options
+     * @return bool
+     */
+    public function beforeValidate(Model $model, $options = array()) {
+        if (empty($this->settings[$model->alias])) {
+            return true;
+        }
 
-			if ($required && empty($field['tmp_name'])) {
-				return false;
-			}
-		}
+        foreach ($this->settings[$model->alias] as $field => $rules) {
+            $validations = array();
 
-		return true;
-	}
+            foreach ($rules as $rule => $setting) {
+                $set = $this->_defaults[$rule];
 
-	/**
-	 * Build the validation rules and validate.
-	 *
-	 * @access public
-	 * @param object $Model
-	 * @return boolean
-	 */
-	public function beforeValidate($Model) {
-		if (!empty($this->_settings[$Model->alias])) {
-			foreach ($this->_settings[$Model->alias] as $field => $rules) {
-				$validations = array();
+                // Parse out values
+                if (!is_array($setting) || !isset($setting['value'])) {
+                    $setting = array('value' => $setting);
+                }
 
-				foreach ($rules as $rule => $setting) {
-					$set = $this->_validations[$rule];
+                switch ($rule) {
+                    case 'required':
+                        $arg = (bool) $setting['value'];
+                    break;
+                    case 'type':
+                    case 'mimeType':
+                    case 'extension':
+                        $arg = (array) $setting['value'];
+                    break;
+                    default:
+                        $arg = (int) $setting['value'];
+                    break;
+                }
 
-					if (is_array($setting) && !isset($setting[0])) {
-						if (!empty($setting['error'])) {
-							$set['message'] = $setting['error'];
-						}
+                if (!isset($setting['rule'])) {
+                    $setting['rule'] = array($rule, $arg);
+                }
 
-						switch ($rule) {
-							case 'required':
-								$set['rule'] = array($rule);
-							break;
-							case 'extension':
-								$set['rule'] = array($rule, (array)$setting['value']);
-							break;
-							default:
-								$set['rule'] = array($rule, (int)$setting['value']);
-							break;
-						}
-					} else {
-						$set['rule'] = array($rule, $setting);
-					}
+                if (isset($setting['error'])) {
+                    $setting['message'] = $setting['error'];
+                    unset($setting['error']);
+                }
 
-					if (isset($rules['required'])) {
-						if (is_array($rules['required'])) {
-							$set['allowEmpty'] = !(bool)$rules['required']['value'];
-						} else {
-							$set['allowEmpty'] = !(bool)$rules['required'];
-						}
-					}
+                unset($setting['value']);
 
-					$validations[$rule] = $set;
-				}
+                // Merge settings
+                $set = array_merge($set, $setting);
 
-				if (!empty($validations)) {
-					if (!empty($Model->validate[$field])) {
-						$validations = $validations + $Model->validate[$field];
-					}
+                // Apply validations
+                if (is_array($arg)) {
+                    $arg = implode(', ', $arg);
+                }
 
-					$Model->validate[$field] = $validations;
-				}
-			}
-		}
+                $set['message'] = __d('uploader', $set['message'], $arg);
 
-		return true;
-	}
+                $validations[$rule] = $set;
+            }
 
-	/**
-	 * Validates multiple combinations of height and width for an image.
-	 *
-	 * @access protected
-	 * @param object $Model
-	 * @param array $data
-	 * @param string $type
-	 * @param int $size
-	 * @return boolean
-	 */
-	protected function _validateImage($Model, $data, $type, $size = 100) {
-		foreach ($data as $fieldName => $field) {
-			if (!$this->_settings[$Model->alias][$fieldName]['required'] && empty($field['tmp_name'])) {
-				return true;
-			} else if (empty($field['tmp_name'])) {
-				return false;
-			}
+            if ($validations) {
+                if (!empty($model->validate[$field])) {
+                    $currentRules = $model->validate[$field];
 
-			$file = getimagesize($field['tmp_name']);
+                    // Fix single rule validate
+                    if (isset($currentRules['rule'])) {
+                        $currentRules = array(
+                            $currentRules['rule'] => $currentRules
+                        );
+                    }
 
-			if (!$file) {
-				return false;
-			}
+                    $validations = $currentRules + $validations;
+                }
 
-			$width = $file[0];
-			$height = $file[1];
+                // Remove notEmpty for uploads
+                if (isset($model->data[$model->alias][$field]['tmp_name']) && isset($validations['notEmpty'])) {
+                    unset($validations['notEmpty']);
+                }
 
-			switch ($type) {
-				case 'maxWidth':    return ($width <= $size); break;
-				case 'maxHeight':   return ($height <= $size); break;
-				case 'minWidth':    return ($width >= $size); break;
-				case 'minHeight':   return ($height >= $size); break;
-			}
-		}
+                $this->_validations[$field] = $validations;
+                $model->validate[$field] = $validations;
+            }
+        }
 
-		return true;
-	}
+        return true;
+    }
+
+    /**
+     * Delete the temporary file.
+     *
+     * @param Model $model
+     * @return bool
+     */
+    public function afterValidate(Model $model) {
+        if ($this->_tempFile) {
+            $this->_tempFile->delete();
+        }
+
+        return true;
+    }
+
+    /**
+     * Allow empty file uploads to circumvent file validations.
+     *
+     * @param Model $model
+     * @param string $field
+     * @param array $value
+     * @return bool
+     */
+    protected function _allowEmpty(Model $model, $field, $value) {
+        if (isset($this->_validations[$field]['required'])) {
+            $rule = $this->_validations[$field]['required'];
+            $required = isset($rule['rule'][1]) ? $rule['rule'][1] : true;
+
+            if ($this->_isEmpty($value)) {
+                if ($rule['allowEmpty']) {
+                    return true;
+
+                } else if ($required) {
+                    return false;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * Check if a file input field is empty.
+     *
+     * @param string|array $value
+     * @return bool
+     */
+    protected function _isEmpty($value) {
+        return (
+            is_array($value) && empty($value['tmp_name']) || // uploads
+            is_string($value) && !$value // imports
+        );
+    }
+
+    /**
+     * Validate the field against the validation rules.
+     *
+     * @uses Transit\Transit
+     * @uses Transit\File
+     * @uses Transit\Validator\ImageValidator
+     *
+     * @param Model $model
+     * @param array $data
+     * @param string $method
+     * @param array $params
+     * @return bool
+     * @throws UnexpectedValueException
+     */
+    protected function _validate(Model $model, $data, $method, array $params) {
+        foreach ($data as $field => $value) {
+            if ($this->_allowEmpty($model, $field, $value)) {
+                return true;
+
+            } else if ($this->_isEmpty($value)) {
+                return false;
+            }
+
+            $file = null;
+
+            // Upload, use temp file
+            if (is_array($value)) {
+                $file = new File($value);
+
+            // Import, copy file for validation
+            } else if (preg_match('/^http/i', $value)) {
+                $target = TMP . md5($value);
+
+                // Already imported from previous validation
+                if (file_exists($target)) {
+                    $file = new File($target);
+
+                // Attempt to copy
+                } else {
+                    $transit = new \Transit\Transit($value);
+                    $transit->setDirectory(TMP);
+
+                    if ($transit->importFromRemote()) {
+                        $file = $transit->getOriginalFile();
+                        $file->rename(basename($target));
+                    }
+                }
+
+                // Save temp so we can delete later
+                if ($file) {
+                    $this->_tempFile = $file;
+                }
+            }
+
+            if (!$file) {
+                $this->log(sprintf('Invalid upload or import for validation: %s', json_encode($value)), LOG_DEBUG);
+                return false;
+            }
+
+            $validator = new ImageValidator();
+            $validator->setFile($file);
+
+            return call_user_func_array(array($validator, $method), $params);
+        }
+
+        return false;
+    }
 
 }

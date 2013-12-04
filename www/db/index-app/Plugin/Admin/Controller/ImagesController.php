@@ -7,59 +7,66 @@ App::uses('GenelHelper', 'View/Helper');
 class ImagesController extends AdminAppController {
 
 	public $name = 'Images';
-	public $components = array('Uploader.Uploader','PImage');
+
+	public $uses = 'Image';
+
+	public $links = array(
+		'post' => Array('controller'=>'posts','link' => 'posts', 'views' => 'Haber', 'viewp' => 'Haberlere','model' => 'Post'),
+		'article' => Array('controller'=>'articles','link' => 'articles', 'views' => 'Yazı', 'viewp' => 'Yazılara','model' => 'Article'),
+		'user' => Array('controller'=>'users','link' => 'users', 'views' => 'Kullanıcı', 'viewp' => 'Kullanıcılara','model' => 'User'),
+		'product' => Array('controller'=>'products','link' => 'products', 'views' => 'Ürün', 'viewp' => 'Ürünlere','model' => 'Product'),
+		'notification' => Array('controller'=>'notifications','link' => 'notifications', 'views' => 'Duyuru', 'viewp' => 'Duyurulara','model' => 'Notification'),
+		'staticpage' => Array('controller'=>'staticpages','link' => 'staticpages', 'views' => 'Sayfa', 'viewp' => 'Sayfalara','model' => 'Staticpage'),
+		'imagegallery' => Array('controller'=>'imagegalleries','link' => 'imagegalleries', 'views' => 'Resim Galerisi', 'viewp' => 'Resim Galerisine','model' => 'Imagegallery'),
+		'productgroup' => Array('controller'=>'productgroups','link' => 'productgroups', 'views' => 'Ürün Grubu', 'viewp' => 'Ürün Grubuna','model' => 'Productgroup')
+	);
+
 	public function index($model = Null,$id = Null) {
 		if (!$model OR !$id) {
 			$this->redirect('/');
 		}
-		$Genel = new GenelHelper;
-		$links = Array(
-				'post' => Array('controller'=>'posts','link' => 'posts', 'views' => 'Haber', 'viewp' => 'Haberlere','model' => 'Post'),
-				'article' => Array('controller'=>'articles','link' => 'articles', 'views' => 'Yazı', 'viewp' => 'Yazılara','model' => 'Article'),
-				'user' => Array('controller'=>'users','link' => 'users', 'views' => 'Kullanıcı', 'viewp' => 'Kullanıcılara','model' => 'User'),
-				'product' => Array('controller'=>'products','link' => 'products', 'views' => 'Ürün', 'viewp' => 'Ürünlere','model' => 'Product'),
-				'notification' => Array('controller'=>'notifications','link' => 'notifications', 'views' => 'Duyuru', 'viewp' => 'Duyurulara','model' => 'Notification'),
-				'staticpage' => Array('controller'=>'staticpages','link' => 'staticpages', 'views' => 'Sayfa', 'viewp' => 'Sayfalara','model' => 'Staticpage'),
-				'imagegallery' => Array('controller'=>'imagegalleries','link' => 'imagegalleries', 'views' => 'Resim Galerisi', 'viewp' => 'Resim Galerisine','model' => 'Imagegallery'),
-				'productgroup' => Array('controller'=>'productgroups','link' => 'productgroups', 'views' => 'Ürün Grubu', 'viewp' => 'Ürün Grubuna','model' => 'Productgroup')
-					);
+
+		$Genel = new GenelHelper(new View());
+		
 		$saveColumn = $model . '_' . $id;
-		$settingModel = $links[$model]['model'] . 'Setting';
+		$settingModel = $this->links[$model]['model'] . 'Setting';
+
 		$this->loadModel($settingModel);
-		$settings = $this->$settingModel->findById(1);
+		$settings = $this->{$settingModel}->findById(1);
 		$settings = $settings[$settingModel];		
+
 		$this->set('settings',$settings);
 		$this->set('id',$id);
 		$this->set('model',$model);
-		$modelName = $links[$model]['model'];
+
+		$modelName = $this->links[$model]['model'];
 		$this->loadModel($modelName);
 		
 		$imageTypeId = $settings['image_type_id'];
-		$img = $this->Image->find('all',Array('conditions'=>Array('Image.'.$model.'_id' => $id)));
+		$img = $this->Image->find('all', array('conditions'=>Array('Image.'.$model.'_id' => $id)));
+
 		if (count($img) == 0) {$main = 1;} else {$main=0;}
-		$this->Uploader->uploadDir = 'img/temp/';
-		$this->Uploader->scanFile = false;
-		$this->Uploader->mime('image', 'gif', 'image/gif');
-		$tempDir = WWW_ROOT . 'img' . DS . 'temp' . DS;
 		$files = Array();
 		$fileName = date('Ymdhms');
-		$w = 800;
-		if (!empty($this->data)) {
+
+		if (!empty($this->request->data)) {
+			pr($this->request->data);
+			die();
 			$hata = 0;
     		if ($data = $this->Uploader->upload('fileName', array('overwrite' => true, 'name' => $fileName))) {
-				$this->data['Image']['ext'] = $data['ext'];
+				$this->request->data['Image']['ext'] = $data['ext'];
 				if (isset($settings['has_image_main'])) {
-					if ($settings['has_image_main'] == 1 AND !isset($this->data['Image']['id'])) {
-						$this->data['Image']['main'] = $main;
+					if ($settings['has_image_main'] == 1 AND !isset($this->request->data['Image']['id'])) {
+						$this->request->data['Image']['main'] = $main;
 					}
 				}
 				if (isset($settings['default_image_name'])) {
 					if ($settings['default_image_name'] != '') {
-						$this->data['Image']['name'] = $settings['default_image_name'];
+						$this->request->data['Image']['name'] = $settings['default_image_name'];
 					}
 				}
-				$this->data['Image']['path'] = 'resimler/';
-				$this->Image->save($this->data);
+				$this->request->data['Image']['path'] = 'resimler/';
+				$this->Image->save($this->request->data);
 				$imageid = $this->Image->id;
 				$this->PImage->resizeImage('resizeCrop', $data['name'], $tempDir, $fileName . '_thumb.' . $data['ext'],100, 100,100);
 				$files['thumb'] =  $fileName . '_thumb.' . $data['ext'];
@@ -96,25 +103,23 @@ class ImagesController extends AdminAppController {
 				}
 				$this->Uploader->delete($data['path']);
 				$this->Session->setFlash(__('<p>Fotoğraf Eklendi</p>', true),'default',array('class' => 'message info'));
-				unset($this->data['Image']);
+				unset($this->request->data['Image']);
 				$hata = 1;
 				$this->redirect(array('action'=>'index/'. $model . '/' . $id));
-    		} else if ($hata == 0 AND isset($this->data['Image']['id'])) {
-    			$this->Image->save($this->data);
+    		} else if ($hata == 0 AND isset($this->request->data['Image']['id'])) {
+    			$this->Image->save($this->request->data);
     			$this->Session->setFlash(__('<p>Fotoğraf Kaydedildi</p>', true),'default',array('class' => 'message info'));
-    			unset($this->data['Image']);
+    			unset($this->request->data['Image']);
     			$this->redirect(array('action'=>'index/'. $model . '/' . $id));
     		}
     	}
-		App::import('Controller', $links[$model]['controller']);
-		$slug = $links[$model]['controller'] . 'Controller';
-		$controller = new $slug;
-		$page = $this->$modelName->getPageNumber($id, $controller->paginate['limit'] , $controller->paginate['order']);
-		$this->set('page',$page);
-		$imageTypeId = $settings['image_type_id'];
-		$images = $this->Image->find('all',Array('conditions'=>Array('Image.'.$model.'_id' => $id)));
-		$this->set('images',$images);
-		$this->set('links',$links);
+    	
+    	$controller = $this->links[$model]['controller'] . 'Controller';
+		App::uses($controller, 'Admin.Controller');
+		$controller = new $controller;
+		$this->set('page', $this->$modelName->getPageNumber($id, $controller->paginate['limit'] , $controller->paginate['order']));
+		$this->set('images', $this->Image->find('all',Array('conditions'=>Array('Image.'.$model.'_id' => $id))));
+		$this->set('links', $this->links);
 	}
 
 	public function delete($model = null,$id = Null,$imageId = Null) {

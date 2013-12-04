@@ -7,44 +7,47 @@ App::uses('GenelHelper', 'View/Helper');
 class ModulesController extends AdminAppController {
 
 	public $name = 'Modules';
-	public $uses = '';
-	public $components = array('Uploader.Uploader');
+
+	public $uses = null;
+
 	public $modules = Array(
-					'Posts' => 'PostSetting',
-					'Products' => 'ProductSetting',
-					'Users' => 'UserSetting',
-					'Imagegalleries' => 'ImagegallerySetting',
-					'Comments' => 'CommentSetting',
-					'Articles' => 'ArticleSetting',
-					'Surveys' => '',
-					'Services' => '',
-					'Notifications' => 'NotificationSetting',
-					'Staticpages' => 'StaticpageSetting',
-					'Productgroups' => 'ProductgroupSettings'
-					);
+		'Posts' => 'PostSetting',
+		'Products' => 'ProductSetting',
+		'Users' => 'UserSetting',
+		'Imagegalleries' => 'ImagegallerySetting',
+		'Comments' => 'CommentSetting',
+		'Articles' => 'ArticleSetting',
+		'Surveys' => '',
+		'Services' => '',
+		'Notifications' => 'NotificationSetting',
+		'Staticpages' => 'StaticpageSetting',
+		'Productgroups' => 'ProductgroupSettings'
+	);
+
 	public $maintance = Array(
-					'post' => 'Post',
-					'product' => 'Product',
-					'user' => 'User',
-					'imagegallery' => 'Imagegallery',
-					'comment' => 'Comment',
-					'article' => 'Article',
-					'survey' => '',
-					'service' => '',
-					'notification' => 'Notification',
-					'staticpage' => 'Staticpage',
-					'productgroup' => 'Productgroup'
-					);
+		'post' => 'Post',
+		'product' => 'Product',
+		'user' => 'User',
+		'imagegallery' => 'Imagegallery',
+		'comment' => 'Comment',
+		'article' => 'Article',
+		'survey' => '',
+		'service' => '',
+		'notification' => 'Notification',
+		'staticpage' => 'Staticpage',
+		'productgroup' => 'Productgroup'
+	);
+
 	public function index() {
-		if (!empty($this->data)) {
+		if (!empty($this->request->data)) {
 			foreach ($this->modules as $controllerName => $moduleName) {
 				if ($moduleName != '') {
 					$this->loadModel($moduleName);
-					$this->data[$moduleName]['id'] = 1;
-					$this->$moduleName->save($this->data);
+					$this->request->data[$moduleName]['id'] = 1;
+					$this->$moduleName->save($this->request->data);
 				}
 			}
-			$this->data = Array();
+			$this->request->data = Array();
 		}
 		foreach ($this->modules as $controllerName => $moduleName) {
 			if ($moduleName != '') {
@@ -88,37 +91,6 @@ class ModulesController extends AdminAppController {
 		}
 		$this->set('modules',$this->modules);
 		$this->set('field_names',$field_names);
-	}
-	public function file_maintenance(){
-		$Genel = new GenelHelper(new View());
-		$this->loadModel('Image');
-		$images = $this->Image->find('all');
-		$columns = Array();
-		foreach ($images as $image) {
-			foreach ($image['Image'] as $columnName => $value) {
-				$temp = $columnName;
-				$temp = explode("_",$temp);
-				if (count($temp) > 1) {
-					if (@$temp[count($temp) - 1] == 'id' AND $value != '') {
-						$deger = '';
-						foreach ($temp as $key => $val) {
-							if ($key != count($temp) - 1) {
-								$deger .= $Genel->ilk_harf($val);
-							}
-						}
-						if (@$image[$deger]['id'] == '') {
-							foreach ($image['ImageFile'] as $imageFile) {
-								$this->Uploader->delete('../img/resimler/' . $imageFile['filename']);
-							}
-							$this->Uploader->delete('img/thumbs/' . $temp[0] . '_' . $image['Image']['id'] . '.' . $image['Image']['ext']);
-							$this->Image->delete($image['Image']['id']);
-							$this->Image->ImageFile->deleteAll(Array('ImageFile.image_id' => $image['Image']['id']));
-						}
-					}
-				}
-			}
-		}
-
 	}
 
 }

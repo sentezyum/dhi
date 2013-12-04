@@ -1,4 +1,7 @@
 <?php
+
+require_once dirname(__DIR__) . '/Vendor/autoload.php';
+
 /**
  * This is core configuration file.
  *
@@ -269,7 +272,7 @@
  * Uncomment this line and correct your server timezone to fix
  * any date & time related errors.
  */
-	//date_default_timezone_set('UTC');
+	date_default_timezone_set('Europe/Istanbul');
 
 /**
  *

@@ -23,12 +23,12 @@ class PostsController extends AdminAppController {
 	public function add() {
 		$Genel = new GenelHelper(new View());
 		if (!empty($this->data)) {
-			$this->data['Post']['name_tr'] = $Genel->ilk_harf($this->data['Post']['name_tr']);
-			$this->data['Post']['name_bg'] = $Genel->ilk_harf($this->data['Post']['name_bg']);
-            $this->data['Post']['name_en'] = $Genel->ilk_harf($this->data['Post']['name_en']);
-			$this->data['Post']['user_id'] = $this->Session->read('User.id');
+			foreach (Configure::read('lang') as $lang) {
+				$this->request->data['Post']['name' . ($lang != Configure::read('base_lang') ? '_' . $lang : '')] = $Genel->ilk_harf($this->request->data['Post']['name' . ($lang != Configure::read('base_lang') ? '_' . $lang : '')]);
+			}
+			$this->request->data['Post']['user_id'] = $this->Session->read('User.id');
 			$this->Post->create();
-			if ($this->Post->save($this->data)) {
+			if ($this->Post->save($this->request->data)) {
 				$this->Session->setFlash(__('<p>Haber kaydedildi</p>', true),'default',array('class' => 'message info'));
 				$this->redirect(array('action' => 'index'));
 			} else {
@@ -43,16 +43,20 @@ class PostsController extends AdminAppController {
 			$this->Session->setFlash(__('Invalid image size', true));
 			$this->redirect(array('action' => 'index'));
 		}
-		if (!empty($this->data)) {            
-			if ($this->Post->save($this->data)) {
+		if (!empty($this->data)) {
+			foreach (Configure::read('lang') as $lang) {
+				$this->request->data['Post']['name' . ($lang != Configure::read('base_lang') ? '_' . $lang : '')] = $Genel->ilk_harf($this->request->data['Post']['name' . ($lang != Configure::read('base_lang') ? '_' . $lang : '')]);
+			}
+			$this->request->data['Post']['user_id'] = $this->Session->read('User.id');
+			if ($this->Post->save($this->request->data)) {
 				$this->Session->setFlash(__('<p>Haber kaydedildi</p>', true),'default',array('class' => 'message info'));
 				$this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('<p>Haber kaydedilemedi</p>', true),'default',array('class' => 'message info'));
 			}
 		}
-		if (empty($this->data)) {
-			$this->data = $this->Post->read(null, $id);
+		if (empty($this->request->data)) {
+			$this->request->data = $this->Post->read(null, $id);
 		}
 	}
 

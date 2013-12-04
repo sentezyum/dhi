@@ -38,7 +38,7 @@ if (!defined('DS')) {
  *
  */
 if (!defined('ROOT')) {
-	define('ROOT', '..' . DS . 'db');
+	define('ROOT', "E:". DS . "Wamp" . DS . "www" . DS . "dhi" . DS . "www" . DS . "db");
 }
 
 /**
@@ -76,6 +76,9 @@ if (!defined('WEBROOT_DIR')) {
 }
 if (!defined('WWW_ROOT')) {
 	define('WWW_ROOT', dirname(__FILE__) . DS);
+}
+if (!defined('UPLOAD_DIR')) {
+	define('UPLOAD_DIR', WWW_ROOT . '/img/uploads/');
 }
 
 // for built-in server

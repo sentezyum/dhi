@@ -7,6 +7,8 @@ App::uses('GenelHelper', 'View/Helper');
 class ImageSizesController extends AdminAppController {
 
 	public $name = 'ImageSizes';
+	
+	public $uses = 'ImageSize';
 
 	public function index() {
 		$this->ImageSize->recursive = 0;
@@ -22,11 +24,11 @@ class ImageSizesController extends AdminAppController {
 	}
 
 	public function add() {
-		$Genel = new GenelHelper;
-		if (!empty($this->data)) {
-			$this->data['ImageSize']['filename'] = $Genel->dosya_adi($this->data['ImageSize']['filename']);
+		$Genel = new GenelHelper(new View());
+		if (!empty($this->request->data)) {
+			$this->request->data['ImageSize']['filename'] = $Genel->dosya_adi($this->request->data['ImageSize']['filename']);
 			$this->ImageSize->create();
-			if ($this->ImageSize->save($this->data)) {
+			if ($this->ImageSize->save($this->request->data)) {
 				$this->Session->setFlash(__('<p>Resim boyutu kaydedildi</p>', true),'default',array('class' => 'message info'));
 				$this->redirect(array('action' => 'index'));
 			} else {
@@ -38,22 +40,22 @@ class ImageSizesController extends AdminAppController {
 	}
 
 	public function edit($id = null) {
-		$Genel = new GenelHelper;
-		if (!$id && empty($this->data)) {
+		$Genel = new GenelHelper(new View());
+		if (!$id && empty($this->request->data)) {
 			$this->Session->setFlash(__('Invalid image size', true));
 			$this->redirect(array('action' => 'index'));
 		}
-		if (!empty($this->data)) {
-			$this->data['ImageSize']['filename'] = $Genel->dosya_adi($this->data['ImageSize']['filename']);
-			if ($this->ImageSize->save($this->data)) {
+		if (!empty($this->request->data)) {
+			$this->request->data['ImageSize']['filename'] = $Genel->dosya_adi($this->request->data['ImageSize']['filename']);
+			if ($this->ImageSize->save($this->request->data)) {
 				$this->Session->setFlash(__('<p>Resim boyutu kaydedildi</p>', true),'default',array('class' => 'message info'));
 				$this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The image size could not be saved. Please, try again.', true));
 			}
 		}
-		if (empty($this->data)) {
-			$this->data = $this->ImageSize->read(null, $id);
+		if (empty($this->request->data)) {
+			$this->request->data = $this->ImageSize->read(null, $id);
 		}
 		$imageTypes = $this->ImageSize->ImageType->find('list');
 		$this->set(compact('imageTypes'));
