@@ -50,7 +50,7 @@ function limitText(limitField, limitCount, limitNum) {
 					<p>
 <?php
 			echo $this->Form->input($model . '_id',Array('label'=>Array('text' =>'Dosya (En fazla 3MB) :','class' => 'req'),'autocomplete' => 'off','type' => 'hidden','value' => $id,'between' => '<br/>','error' => array('wrap' => 'span','class' => 'note error')));
-			echo $this->Form->input('fileName',Array('label'=>Array('text' =>'Dosya (En fazla 3MB) :','class' => 'req'),'autocomplete' => 'off','type' => 'file','between' => '<br/>','error' => array('wrap' => 'span','class' => 'note error')));
+			echo $this->Form->input('ImageFile.filename',Array('label'=>Array('text' =>'Dosya (En fazla 3MB) :','class' => 'req'),'autocomplete' => 'off','type' => 'file','between' => '<br/>','error' => array('wrap' => 'span','class' => 'note error')));
 		?>
 		</p>
 <p>
@@ -83,10 +83,10 @@ function limitText(limitField, limitCount, limitNum) {
 					<ul class="imglist">
 						<?php foreach ($images as $image) {?>
 							<li>
-								<?php echo $this->Html->image('thumbs/' . $model . '_' . $image['Image']['id'] . '.' . $image['Image']['ext']);?>
+								<?php echo $this->Html->image('resimler/' . $model . '_' . $image['Image']['id'] . '.' . $image['Image']['ext']);?>
 								<ul>
 									<?php if(isset($settings['default_image_size_name'])) { ?>
-									<li class="view"><?php echo $this->Html->link('DÜZENLE','#',Array('onclick' => '$("#' . $image['Image']['id'] . '_img").dialog("open");'));?>
+									<li class="view"><?php echo $this->Html->link('DÜZENLE','javascript:void(0);',Array('onclick' => '$("#' . $image['Image']['id'] . '_img").dialog("open");'));?>
 									<?php } ?>
 								<li class="delete"><?php echo $this->Html->link(__('SİL', true), array('action' => 'delete', $model,$id,$image['Image']['id'])); ?></li>
 							</ul>
@@ -95,7 +95,7 @@ function limitText(limitField, limitCount, limitNum) {
 							
 							
 							<div id="<?php echo $image['Image']['id']?>_img" class="block dlga" title="Düzenle">
-				<?php echo $this->Html->image('../../img/resimler/' . $model . '_' . $settings['default_image_size_name'] . '_' . $image['Image']['id'] . '.' . $image['Image']['ext']);?>
+				<?php echo $this->Html->image('resimler/' . $model . ($settings['default_image_size_name'] == "" ? "" : "_" . $settings['default_image_size_name']) . '_' . $image['Image']['id'] . '.' . $image['Image']['ext']);?>
 				 <?php echo $this->Form->create('Image',Array('encoding' => Null,'action' => 'index/' . $model . '/' . $id,'type' => 'file','id' => $image['Image']['id'] . '_frm'));?>
 
 	<?php echo $this->Form->input('Image.id',Array('label'=>Array('text' =>'Dosya Adı :','class' => 'req'),'class' => 'text medium big','autocomplete' => 'off','between' => '<br/>','type' => 'hidden','value' => $image['Image']['id'],'error' => array('wrap' => 'span','class' => 'note error')));?>
@@ -103,14 +103,14 @@ function limitText(limitField, limitCount, limitNum) {
                 <?php if (isset($settings['has_image_name'])) { ?>
                 	<?php if ($settings['has_image_name'] == 1) { ?>
                 <p>
-	<?php echo $this->Form->input('name',Array('label'=>Array('text' =>'Dosya Adı :','class' => 'req'),'class' => 'text medium big','autocomplete' => 'off','between' => '<br/>','value' => $image['Image']['name'],'error' => array('wrap' => 'span','class' => 'note error')));?>
+	<?php echo $this->Form->input('Image.name',Array('label'=>Array('text' =>'Dosya Adı :','class' => 'req'),'class' => 'text medium big','autocomplete' => 'off','between' => '<br/>','value' => $image['Image']['name'],'error' => array('wrap' => 'span','class' => 'note error')));?>
 </p>
 					<?php } ?>
 				<?php } ?>
 				<?php if (isset($settings['has_image_description'])) { ?>
                 	<?php if ($settings['has_image_description'] == 1) { ?>
 <p>
-	<?php echo $this->Form->input('description',Array('label'=>Array('text' => 'Fotoğraf Detayı :'),'autocomplete' => 'off','rows'=>3,'type' => 'textarea','value' => $image['Image']['description'],'between' => '<br/>','error' => array('wrap' => 'span','class' => 'note error')));?>
+	<?php echo $this->Form->input('Image.description',Array('label'=>Array('text' => 'Fotoğraf Detayı :'),'autocomplete' => 'off','rows'=>3,'type' => 'textarea','value' => $image['Image']['description'],'between' => '<br/>','error' => array('wrap' => 'span','class' => 'note error')));?>
 </p>
 					<?php } ?>
 				<?php } ?>
@@ -118,11 +118,11 @@ function limitText(limitField, limitCount, limitNum) {
 					<p>
 <?php
 			echo $this->Form->input($model . '_id',Array('label'=>Array('text' =>'Dosya (En fazla 3MB) :','class' => 'req'),'autocomplete' => 'off','type' => 'hidden','value' => $id,'between' => '<br/>','error' => array('wrap' => 'span','class' => 'note error')));
-			echo $this->Form->input('fileName',Array('label'=>Array('text' =>'Dosya (En fazla 3MB) :','class' => 'req'),'autocomplete' => 'off','type' => 'file','between' => '<br/>','error' => array('wrap' => 'span','class' => 'note error')));
+			echo $this->Form->input('ImageFile.filename',Array('label'=>Array('text' =>'Dosya (En fazla 3MB) :','class' => 'req'),'autocomplete' => 'off','type' => 'file','between' => '<br/>','error' => array('wrap' => 'span','class' => 'note error')));
 		?>
 		</p>
 <p>
-	<?php echo $this->Form->submit('KAYDET',Array('onclick' => '$("#dialog-message").dialog("open");$("#' . $image['Image']['id'] . '_frm").submit();','class' => 'submit','div'=>false));?>
+	<?php echo $this->Form->submit('KAYDET',Array('onclick' => '$("#dialog-message").dialog("open"); $("#' . $image['Image']['id'] . '_frm").submit();','class' => 'submit','div'=>false));?>
 </p>
 							
 					<?php echo $this->Form->end();?>

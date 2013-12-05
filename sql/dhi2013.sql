@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : Localhost
-Source Server Version : 50524
+Source Server         : localhost
+Source Server Version : 50612
 Source Host           : localhost:3306
 Source Database       : dhi2013
 
 Target Server Type    : MYSQL
-Target Server Version : 50524
+Target Server Version : 50612
 File Encoding         : 65001
 
-Date: 2013-12-05 11:33:13
+Date: 2013-12-05 20:46:15
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -259,11 +259,13 @@ CREATE TABLE `images` (
   `service_id` int(11) DEFAULT NULL,
   `reference_id` varchar(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of images
 -- ----------------------------
+INSERT INTO `images` VALUES ('1', null, 'resimler/', '19', null, null, null, null, null, '1', 'jpg', null, null, null, null, null, null);
+INSERT INTO `images` VALUES ('2', null, 'resimler/', '19', null, null, null, null, null, '0', 'jpg', null, null, null, null, null, null);
 
 -- ----------------------------
 -- Table structure for `image_files`
@@ -275,11 +277,17 @@ CREATE TABLE `image_files` (
   `filename` varchar(100) DEFAULT NULL,
   `image_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of image_files
 -- ----------------------------
+INSERT INTO `image_files` VALUES ('1', '1', 'post_small_1.jpg', '1');
+INSERT INTO `image_files` VALUES ('2', '2', 'post_middle_1.jpg', '1');
+INSERT INTO `image_files` VALUES ('3', '3', 'post_orig_1.jpg', '1');
+INSERT INTO `image_files` VALUES ('5', '1', 'post_small_2.jpg', '2');
+INSERT INTO `image_files` VALUES ('6', '2', 'post_middle_2.jpg', '2');
+INSERT INTO `image_files` VALUES ('7', '3', 'post_orig_2.jpg', '2');
 
 -- ----------------------------
 -- Table structure for `image_galleries`
@@ -314,12 +322,14 @@ CREATE TABLE `image_sizes` (
   `quality` int(11) DEFAULT NULL,
   `filename` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of image_sizes
 -- ----------------------------
-INSERT INTO `image_sizes` VALUES ('1', '1', '150', '150', '100', 'haber-s');
+INSERT INTO `image_sizes` VALUES ('1', '1', '100', '100', '100', 'small');
+INSERT INTO `image_sizes` VALUES ('2', '1', '150', '150', '100', 'middle');
+INSERT INTO `image_sizes` VALUES ('3', '1', null, null, '100', 'orig');
 
 -- ----------------------------
 -- Table structure for `image_types`
@@ -516,7 +526,6 @@ CREATE TABLE `posts` (
 -- ----------------------------
 INSERT INTO `posts` VALUES ('18', 'asd', 'asd', 'asdasd', null, null, null, '2013-12-01 22:41:46', null, null, '1', null, null, null, '0', null, null, 'asd', 'asd', 'asd', 'asd', 'dasdasd', 'asdas');
 INSERT INTO `posts` VALUES ('19', '', '', '', null, null, null, '2013-12-04 19:29:15', null, null, '0', null, null, null, '0', null, 'CIMG0054.JPG', '', '', '', '', '', '');
-INSERT INTO `posts` VALUES ('20', 'Asdf', 'fasd', 'asdf', null, null, null, '2013-12-04 22:09:00', null, null, '1', null, '1', null, '0', null, '/img/uploads/CIMG0072.jpg', 'Asfd', 'Asd', 'asdf', 'asdf', 'asdf', 'asdfasdf');
 
 -- ----------------------------
 -- Table structure for `post_settings`
@@ -543,7 +552,7 @@ CREATE TABLE `post_settings` (
 -- ----------------------------
 -- Records of post_settings
 -- ----------------------------
-INSERT INTO `post_settings` VALUES ('1', '1', null, null, null, null, null, '1', 'haber-s', '0', '0', '1', '', '');
+INSERT INTO `post_settings` VALUES ('1', '1', null, null, null, null, null, '1', '', '1', '1', '1', 'small', '');
 
 -- ----------------------------
 -- Table structure for `productgroups`

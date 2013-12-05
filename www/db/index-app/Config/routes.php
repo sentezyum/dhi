@@ -29,6 +29,7 @@
 CakePlugin::routes();
 
 Router::connect('/', array('controller' => 'main', 'action' => 'index', 'language' => 'en'));
+Router::connect('/photos/*', array('controller' => 'photos', 'action' => 'index'));
 Router::connect('/:language/urun_gruplari/:group', array('controller' => 'urun_gruplari', 'action' => 'view'), array('pass' => Array('group', 'language')));
 Router::connect('/urun_gruplari/:group', array('controller' => 'urun_gruplari', 'action' => 'view', 'language' => 'en'), array('pass' => Array('group')));
 Router::connect('/:language',array('controller' => 'main' , 'action' => 'index'), array('pass' => Array('language')));

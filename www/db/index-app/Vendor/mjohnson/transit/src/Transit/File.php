@@ -401,14 +401,18 @@ class File {
      * @return bool
      */
     public function rename($name = '', $append = '', $prepend = '') {
+        $called = false;
         if (is_callable($name)) {
-            $name = call_user_func_array($name, array($this->name(), $this));
+            $called = true;
+            $name = call_user_func_array($name, array($this->name(), $this, $append, $prepend));
         } else {
             $name = $name ?: $this->name();
         }
 
-        // Add boundaries
-        $name = (string) $prepend . $name . (string) $append;
+        if (!$called) {
+            // Add boundaries
+            $name = (string) $prepend . $name . (string) $append;
+        }
 
         // Remove unwanted characters
         $name = preg_replace('/[^_-\p{Ll}\p{Lm}\p{Lo}\p{Lt}\p{Lu}\p{Nd}]/imu', '-', $name);

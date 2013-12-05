@@ -38,7 +38,7 @@ if (!defined('DS')) {
  *
  */
 if (!defined('ROOT')) {
-	define('ROOT', "E:". DS . "Wamp" . DS . "www" . DS . "dhi" . DS . "www" . DS . "db");
+	define('ROOT', "D:". DS . "Wamp" . DS . "www" . DS . "dhi" . DS . "www" . DS . "db");
 }
 
 /**
@@ -78,7 +78,7 @@ if (!defined('WWW_ROOT')) {
 	define('WWW_ROOT', dirname(__FILE__) . DS);
 }
 if (!defined('UPLOAD_DIR')) {
-	define('UPLOAD_DIR', WWW_ROOT . '/img/uploads/');
+	define('UPLOAD_DIR', WWW_ROOT . '/img/resimler/');
 }
 
 // for built-in server

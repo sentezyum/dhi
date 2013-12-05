@@ -18,4 +18,5 @@ switch ($ext) {
 header('Content-Type: ' . $ctype);
 print($imagedata);
 ob_end_flush();
+RequestHandlerComponent::respondAs($ctype);
 ?>

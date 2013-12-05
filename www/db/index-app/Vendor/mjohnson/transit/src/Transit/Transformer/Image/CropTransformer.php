@@ -52,6 +52,11 @@ class CropTransformer extends AbstractImageTransformer {
         $width = $config['width'];
         $height = $config['height'];
 
+        if ($width === 0 && $height === 0) {
+            $width = $baseWidth;
+            $height = $baseHeight;
+        }
+
         if (is_numeric($width) && !$height) {
             $height = round(($baseHeight / $baseWidth) * $width);
 

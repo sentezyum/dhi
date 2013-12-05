@@ -46,74 +46,72 @@ class ImagesController extends AdminAppController {
 		$img = $this->Image->find('all', array('conditions'=>Array('Image.'.$model.'_id' => $id)));
 
 		if (count($img) == 0) {$main = 1;} else {$main=0;}
-		$files = Array();
-		$fileName = date('Ymdhms');
-
+		
 		if (!empty($this->request->data)) {
+			$hata = $this->request->data["ImageFile"]["filename"]["error"];
 			pr($this->request->data);
-			die();
-			$hata = 0;
-    		if ($data = $this->Uploader->upload('fileName', array('overwrite' => true, 'name' => $fileName))) {
-				$this->request->data['Image']['ext'] = $data['ext'];
+    		if ($hata === 0) {
+    			$this->loadModel('ImageFile');
+    			$this->loadModel('ImageType');
+    			
+				$filetypes = $this->ImageType->findById($imageTypeId);
+				$this->request->data['Image']['path'] = 'resimler/';
+				$this->Image->save($this->request->data);
+				$imageid = $this->Image->id;
+				foreach ($this->ImageFile->find('all', array('conditions' => array('ImageFile.image_id' => $imageid), 'recursive' => -1)) as $file) {
+					$file = WWW_ROOT . 'img' . DS . 'resimler' . DS . $file['ImageFile']['filename'];
+					unlink($file);
+				}
+				$this->ImageFile->deleteAll(Array('ImageFile.image_id' => $imageid));
+    			$transforms = array();
+    			foreach ($filetypes['ImageSize'] as $key => $values) {
+					if ($values['width'] == "") {$wdth = 0;} else {$wdth = $values['width'];}
+					if ($values['height'] == "") {$hght = 0;} else {$hght = $values['height'];}
+					$transforms[$values['filename']] = array(
+						'class' => 'crop',
+						'append' => $values['id'],
+						'prepend' => $values['filename'],
+						'width' => $wdth,
+						'height' => $hght,
+						'quality' => $values['quality']
+					);
+				}
+				$this->ImageFile->related['model'] = $model;
+				$this->ImageFile->related['model_id'] = $id;
+				$this->ImageFile->related['image_id'] = $imageid;
+				$this->ImageFile->actsAs['Uploader.Attachment']['filename']['transforms'] = $transforms;
+				$this->ImageFile->save(array('ImageFile' => $this->request->data['ImageFile']));
+				$this->ImageFile->deleteAll(array('ImageFile.image_id' => null));
+				$this->ImageFile->toBeDelete->delete();
+
+				$imageData = array();
+				$imageData['Image']['id'] = $imageid;
+				$imageData['Image']['ext'] = $this->ImageFile->related['file_ext'];
 				if (isset($settings['has_image_main'])) {
 					if ($settings['has_image_main'] == 1 AND !isset($this->request->data['Image']['id'])) {
-						$this->request->data['Image']['main'] = $main;
+						$imageData['Image']['main'] = $main;
 					}
 				}
 				if (isset($settings['default_image_name'])) {
 					if ($settings['default_image_name'] != '') {
-						$this->request->data['Image']['name'] = $settings['default_image_name'];
+						$imageData['Image']['name'] = $settings['default_image_name'];
 					}
 				}
-				$this->request->data['Image']['path'] = 'resimler/';
-				$this->Image->save($this->request->data);
-				$imageid = $this->Image->id;
-				$this->PImage->resizeImage('resizeCrop', $data['name'], $tempDir, $fileName . '_thumb.' . $data['ext'],100, 100,100);
-				$files['thumb'] =  $fileName . '_thumb.' . $data['ext'];
-				$this->Uploader->move('img/temp/' . $files['thumb'], 'img/thumbs/' . $model .'_' . $imageid . '.' . $data['ext'], true);
-				$this->loadModel('ImageType');
-				$filetypes = $this->ImageType->findById($imageTypeId);
-				$desiredfilename = $model;
-				$kontrol = $this->Image->ImageFile->find('all',Array('conditions' => Array('ImageFile.image_id' => $imageid)));
-					if (count($kontrol) > 0) {
-						$this->Image->ImageFile->deleteAll(Array('ImageFile.image_id' => $imageid));
-					}
-				foreach ($filetypes['ImageSize'] as $key => $values) {
-					if ($values['width'] == "") {$wdth = false;} else {$wdth = $values['width'];}
-					if ($values['height'] == "") {$hght = false;} else {$hght = $values['height'];}
-					if ($wdth == false AND $hght == false) {
-						copy('img/temp/' . $data['name'],'../img/resimler/' . $desiredfilename . '_' . $values['filename'] . '_' . $imageid . '.' . $data['ext']);
-						
-					} else {
-						if ($wdth == false OR $hght == false) {
-							$this->PImage->resizeImage('resize', $data['name'], $tempDir, $desiredfilename . '_' . $values['filename'] . '_' . $imageid . '.' . $data['ext'], $wdth, $hght, $values['quality']);
-							$this->Uploader->move('img/temp/' . $desiredfilename . '_' . $values['filename'] . '_' . $imageid . '.' . $data['ext'], '../img/resimler/' . $desiredfilename . '_' . $values['filename'] . '_' . $imageid . '.' . $data['ext'], true);
-						}
-					}
-					if ($wdth != false AND $hght != false) {
-						$this->PImage->resizeImage('resizeCrop', $data['name'], $tempDir, $desiredfilename . '_' . $values['filename'] . '_' . $imageid . '.' . $data['ext'], $wdth, $hght, $values['quality']);
-						$this->Uploader->move('img/temp/' . $desiredfilename . '_' . $values['filename'] . '_' . $imageid . '.' . $data['ext'], '../img/resimler/' . $desiredfilename . '_' . $values['filename'] . '_' . $imageid . '.' . $data['ext'], true);
-					}
-					$veri = Array();
-					$veri['ImageFile']['image_id'] = $imageid;
-					$veri['ImageFile']['filename'] = $desiredfilename . '_' . $values['filename'] . '_' . $imageid . '.' . $data['ext'];
-					$veri['ImageFile']['image_size_id'] = $values['id'];
-					$this->Image->ImageFile->create();
-					$this->Image->ImageFile->save($veri);
-				}
-				$this->Uploader->delete($data['path']);
+				$this->Image->save($imageData);
 				$this->Session->setFlash(__('<p>Fotoğraf Eklendi</p>', true),'default',array('class' => 'message info'));
 				unset($this->request->data['Image']);
+				unset($this->request->data['ImageFile']);
 				$hata = 1;
 				$this->redirect(array('action'=>'index/'. $model . '/' . $id));
+
     		} else if ($hata == 0 AND isset($this->request->data['Image']['id'])) {
     			$this->Image->save($this->request->data);
-    			$this->Session->setFlash(__('<p>Fotoğraf Kaydedildi</p>', true),'default',array('class' => 'message info'));
+    			$this->Session->setFlash(__('<p>Fotoğraf Hatası</p>', true),'default',array('class' => 'message info'));
     			unset($this->request->data['Image']);
+    			unset($this->request->data['ImageFile']);
     			$this->redirect(array('action'=>'index/'. $model . '/' . $id));
     		}
     	}
-    	
     	$controller = $this->links[$model]['controller'] . 'Controller';
 		App::uses($controller, 'Admin.Controller');
 		$controller = new $controller;
@@ -141,9 +139,11 @@ class ImagesController extends AdminAppController {
 		$imageid = $imageId;
 		$ext = $img['Image']['ext'];
 		foreach ($files as $key => $values) {
-			$this->Uploader->delete('../img/resimler/' . $values['ImageFile']['filename']);
+			$file = WWW_ROOT . 'img' . DS . 'resimler' . DS . $values['ImageFile']['filename'];
+			unlink($file);
 		}
-			$this->Uploader->delete('img/thumbs/' . $model . '_' . $imageid . '.' . $ext);
+		$file = WWW_ROOT . 'img' . DS . 'resimler' . DS . $model . '_' . $imageid . '.' . $ext;
+		unlink($file);
 		if ($this->Image->delete($imageId)) {
 			$this->Image->ImageFile->deleteAll(Array('ImageFile.image_id' => $imageid));
 			$this->Session->setFlash(__('<p>Fotoğraf Silindi</p>', true),'default',array('class' => 'message info'));

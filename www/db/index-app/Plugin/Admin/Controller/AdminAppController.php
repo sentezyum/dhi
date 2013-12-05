@@ -45,7 +45,7 @@ class AdminAppController extends AppController {
 		}
 	}
 
-	public function redirect($data) {
+	public function redirect($data, $status = NULL, $exit = true) {
 		if (is_array($data)) {
 			if (!isset($data["plugin"])) {
 				$data["plugin"] = $this->params->plugin;

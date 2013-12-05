@@ -82,7 +82,7 @@ class Image extends AppModel {
 	);
 	
 
-	public function getImages($sources = Array(),$model = Null) {
+	public function getImages($sources = Array(), $model = Null) {
 		if ($model != Null) {
 			$modelTable = ucfirst($model);
 			$output = Array();
