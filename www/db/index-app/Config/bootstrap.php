@@ -1,4 +1,10 @@
 <?php
+//Kullanılabilir Diller
+Configure::write('lang', array('tr', 'eng', 'rus'));
+
+//Varsayılan Dil
+Configure::write('base_lang', 'tr');
+
 /**
  * This file is loaded automatically by the app/webroot/index.php file after core.php
  *

@@ -26,16 +26,24 @@
  * its action called 'display', and we pass a param to select the view file
  * to use (in this case, /app/views/pages/home.ctp)...
  */
+
 CakePlugin::routes();
 
-Router::connect('/', array('controller' => 'main', 'action' => 'index', 'language' => 'en'));
-Router::connect('/photos/*', array('controller' => 'photos', 'action' => 'index'));
-Router::connect('/:language/urun_gruplari/:group', array('controller' => 'urun_gruplari', 'action' => 'view'), array('pass' => Array('group', 'language')));
-Router::connect('/urun_gruplari/:group', array('controller' => 'urun_gruplari', 'action' => 'view', 'language' => 'en'), array('pass' => Array('group')));
-Router::connect('/:language',array('controller' => 'main' , 'action' => 'index'), array('pass' => Array('language')));
-Router::connect('/:language/:page',array('action' => 'pages'), array('pass' => Array('language', 'page')));
+Router::parseExtensions("html");
+Router::parseExtensions("jpg");
+Router::parseExtensions("jpeg");
+Router::parseExtensions("png");
 
+Router::connect('/', array('controller' => 'main', 'action' => 'index'));
 
+Router::connect('/photos/:id-:slug', array('controller' => 'photos', 'action' => 'index'), array('id' => '[0-9]+'));
+Router::connect('/:controller/:id-:slug.html', array(), array('id' => '[0-9]+'));
+Router::connect('/:controller.html', array());
+Router::connect('/:language/:controller/:id-:slug.html', array(), array('language' => '[a-z]{3}|[a-z]{2}', 'id' => '[0-9]+'));
+Router::connect('/:language/:controller.html', array(), array('language' => '[a-z]{3}|[a-z]{2}'));
+Router::connect('/:language/:controller/:action/*', array(), array('language' => '[a-z]{3}|[a-z]{2}'));
+Router::connect('/:language',array('controller' => 'main' , 'action' => 'index'), array('language' => '[a-z]{3}|[a-z]{2}'));
+Router::connect('/', array('controller' => 'main' , 'action' => 'index'));
 
 require CAKE . 'Config' . DS . 'routes.php';
 

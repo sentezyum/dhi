@@ -1,38 +1,26 @@
 <?php
 
 App::uses('AppController', 'Controller');
-App::uses('ModulesController', 'Controller');
+
 
 class PageController extends AppController {
-    var $name = 'Page';
-    var $uses = 'Staticpage';
+    
+    public $name = 'Page';
 
-    function view($id = Null) {
-        if ($id == Null) {
-            $this->redirect('/');
-        }
-        $page = $this->Staticpage->findById($id);
-        if (empty($page)) {
-            $this->redirect('/');
-        }
-        $lang = $this->Session->read('lang');
-        $prefLang = '';
-        if ($page['Staticpage']['value_' . $lang['Short']] == '') {
-           if ($page['Staticpage']['value_en'] == '') {
-               if ($page['Staticpage']['value_tr'] == '') {
-                   $this->redirect('/');
-               } else {
-                   $prefLang['Short'] = 'tr';
-                   $prefLang['Long'] = 'Türkçe';
-               }
-           } else {
-               $prefLang['Short'] = 'en';
-               $prefLang['Long'] = 'İngilizce';
-           }
-        } else {
-            $prefLang['Short'] = $lang['Short'];
-        }
-        $this->set('page',$page);
-        $this->set('prefLang',$prefLang);
+    public $uses = 'Staticpage';
+
+    public function index() {
+      if (!isset($this->request->params["id"])) {
+        $this->redirect('/');
+      }
+      $page = $this->Staticpage->findById($this->request->params["id"]);
+      if (empty($page)) {
+        $this->redirect('/');
+      }
+      Configure::write("BodyClass", "corporate_about");
+      $page = $this->Staticpage->Image->getImages(array(0 => $page), 'staticpage');
+      $page = $page[0];
+      $this->set("title_for_layout", "Dhi" . " &raquo; " . $page['Staticpage']['name' . $this->langPrefix()]);
+      $this->set(compact('page'));
     }
 }

@@ -23,9 +23,6 @@ class PostsController extends AdminAppController {
 	public function add() {
 		$Genel = new GenelHelper(new View());
 		if (!empty($this->data)) {
-			foreach (Configure::read('lang') as $lang) {
-				$this->request->data['Post']['name' . ($lang != Configure::read('base_lang') ? '_' . $lang : '')] = $Genel->ilk_harf($this->request->data['Post']['name' . ($lang != Configure::read('base_lang') ? '_' . $lang : '')]);
-			}
 			$this->request->data['Post']['user_id'] = $this->Session->read('User.id');
 			$this->Post->create();
 			if ($this->Post->save($this->request->data)) {
@@ -44,9 +41,6 @@ class PostsController extends AdminAppController {
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
-			foreach (Configure::read('lang') as $lang) {
-				$this->request->data['Post']['name' . ($lang != Configure::read('base_lang') ? '_' . $lang : '')] = $Genel->ilk_harf($this->request->data['Post']['name' . ($lang != Configure::read('base_lang') ? '_' . $lang : '')]);
-			}
 			$this->request->data['Post']['user_id'] = $this->Session->read('User.id');
 			if ($this->Post->save($this->request->data)) {
 				$this->Session->setFlash(__('<p>Haber kaydedildi</p>', true),'default',array('class' => 'message info'));

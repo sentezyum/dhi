@@ -484,7 +484,7 @@ ul.left_menu li {
 }
 
 ul.left_menu li li{
-	margin-left: 20px;
+	padding-left: 20px;
 }
 
 
@@ -514,7 +514,12 @@ ul.left_menu > li a{
 	padding-left: 10px;
 }
 
-ul.left_menu > li.active > a{
+ul.left_menu > li > ul > li a{
+	width: 200px;
+}
+
+
+ul.left_menu li.active > a, ul.left_menu > li a:hover{
 	background-color: #999999;
 	color: #fefefe;
 }

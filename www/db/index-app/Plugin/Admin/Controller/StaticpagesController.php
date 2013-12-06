@@ -20,26 +20,24 @@ class StaticpagesController extends AdminAppController {
 		$this->set('staticpages', $this->paginate());
 	}
 	public function add() {
-		if (!empty($this->data)) {
+		if (!empty($this->request->data)) {
 			$this->Staticpage->create();
-			if ($this->Staticpage->save($this->data)) {
+			if ($this->Staticpage->save($this->request->data)) {
 				$this->Session->setFlash(__('<p>Sayfa kaydedildi</p>', true),'default',array('class' => 'message info'));
 				$this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('<p>Sayfa kaydedilemedi</p>', true),'default',array('class' => 'message info'));
 			}
 		}
-        $this->set('groups', $this->Staticpage->generateTreeList($conditions=null, $keyPath=null, $valuePath=null, $spacer= '+', $recursive=null));
-        $this->set('menuareas', $this->Staticpage->Menuarea->find('list'));
 	}
 
 	public function edit($id = null) {
-		if (!$id && empty($this->data)) {
+		if (!$id && empty($this->request->data)) {
 			$this->Session->setFlash(__('Yanlış Sayfa', true));
 			$this->redirect(array('action' => 'index'));
 		}
-		if (!empty($this->data)) {
-			if ($this->Staticpage->save($this->data)) {
+		if (!empty($this->request->data)) {
+			if ($this->Staticpage->save($this->request->data)) {
 				$this->Session->setFlash(__('<p>Sayfa kaydedildi</p>', true),'default',array('class' => 'message info'));
 				$page = $this->{$this->modelClass}->getPageNumber($id, $this->paginate['limit'] , $this->paginate['order']);
 				$this->redirect("/" . $this->params['controller'] . "/index/page:{$page}");
@@ -47,11 +45,9 @@ class StaticpagesController extends AdminAppController {
 				$this->Session->setFlash(__('<p>Sayfa kaydedilemedi</p>', true),'default',array('class' => 'message info'));
 			}
 		}
-		if (empty($this->data)) {
-			$this->data = $this->Staticpage->read(null, $id);
+		if (empty($this->request->data)) {
+			$this->request->data = $this->Staticpage->read(null, $id);
 		}
-        $this->set('groups', $this->Staticpage->generateTreeList($conditions=null, $keyPath=null, $valuePath=null, $spacer= '+', $recursive=null));
-        $this->set('menuareas', $this->Staticpage->Menuarea->find('list'));
 	}
 
 	public function delete($id = null) {

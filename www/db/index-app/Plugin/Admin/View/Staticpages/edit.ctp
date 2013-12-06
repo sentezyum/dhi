@@ -13,15 +13,6 @@
 				<div class="block_content">
 <?php echo $this->Form->create('Staticpage',Array('encoding' => Null,'inputDefaults' => Array('div' => false,'format' => array('before', 'label', 'error', 'between', 'input', 'after'))));?>
 <?php echo $this->Form->input('id',Array('label'=>Array('text' =>'Haber Kategorisi :','class' => 'req'),'class' => 'styled','autocomplete' => 'off','between' => '<br/>','error' => array('wrap' => 'span','class' => 'note error')));?>
-<p>
-	<?php echo $this->Form->input('menuarea_id',Array('label'=>Array('text' =>'Bağlı Menü Alanı :'),'class' => 'text medium big','autocomplete' => 'off','between' => '<br/>','escape' => false,'error' => array('wrap' => 'span','class' => 'note error')));?>
-</p>
-<p>
-	<?php echo $this->Form->input('parent_id',Array('label'=>Array('text' =>'Bağlı Menü :'),'empty' => '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;','class' => 'text medium big','autocomplete' => 'off','between' => '<br/>','options' => $groups,'escape' => false,'error' => array('wrap' => 'span','class' => 'note error')));?>
-</p>
-                                    <p>
-	<?php echo $this->Form->input('link',Array('label'=>Array('text' =>'Link (Boş Kalırsa Sayfa Açılır) :','class' => 'req'),'class' => 'text medium big','autocomplete' => 'off','between' => '<br/>','error' => array('wrap' => 'span','class' => 'note error')));?>
-</p>
 <?php foreach (Configure::read('lang') as $lang) { ?>
 	<p>
 		<?php echo $this->Form->input('name' . ($lang != Configure::read('base_lang') ? '_' . $lang : ''),Array('label'=>Array('text' =>'Başlık (' . $lang . ') :','class' => 'req'),'class' => 'text medium big','autocomplete' => 'off','between' => '<br/>','error' => array('wrap' => 'span','class' => 'note error')));?>

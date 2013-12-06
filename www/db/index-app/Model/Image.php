@@ -99,16 +99,16 @@ class Image extends AppModel {
 						if (!isset($temp['Image']['NonMain'])) {$temp['Image']['NonMain'] = Array();}
 						if (!isset($temp['Image']['All'])) {$temp['Image']['All'] = Array();}
 						if ($image['name'] != '') {
-							$temp['Image']['Named'][$image['name']][$imageFile['ImageSize']['filename']] = '../photos/' . $imageFile['ImageFile']['id'] . '/' . $this->seo_tr($source[$modelTable]['name_tr']);
+							$temp['Image']['Named'][$image['name']][$imageFile['ImageSize']['filename']] = 'resimler/' . $imageFile['ImageFile']['filename'];
 						} else {
-							$temp['Image']['NonNamed'][$image['id']][$imageFile['ImageSize']['filename']] = '../photos/' . $imageFile['ImageFile']['id'] . '/' . $this->seo_tr($source[$modelTable]['name_tr']);
+							$temp['Image']['NonNamed'][$image['id']][$imageFile['ImageSize']['filename']] = 'resimler/' . $imageFile['ImageFile']['filename'];
 						}
 						if ($image['main'] == 1) {
-							$temp['Image']['Main'][$imageFile['ImageSize']['filename']] = '../photos/' . $imageFile['ImageFile']['id'] .'/' . $this->seo_tr($source[$modelTable]['name_tr']);
+							$temp['Image']['Main'][$imageFile['ImageSize']['filename']] = 'resimler/' . $imageFile['ImageFile']['filename'];
 						} else {
-							$temp['Image']['NonMain'][$image['id']][$imageFile['ImageSize']['filename']] = '../photos/' . $imageFile['ImageFile']['id'] . '/' . $this->seo_tr($source[$modelTable]['name_tr']);
+							$temp['Image']['NonMain'][$image['id']][$imageFile['ImageSize']['filename']] = 'resimler/' . $imageFile['ImageFile']['filename'];
 						}
-						$temp['Image']['All'][$image['id']][$imageFile['ImageSize']['filename']] = '../photos/' . $imageFile['ImageFile']['id'] . '/' . $this->seo_tr($source[$modelTable]['name_tr']);
+						$temp['Image']['All'][$image['id']][$imageFile['ImageSize']['filename']] = 'resimler/' . $imageFile['ImageFile']['filename'];
 					}
 				}
 				$output[] = $temp;
@@ -128,16 +128,16 @@ class Image extends AppModel {
 						if (!isset($temp['Image']['NonMain'])) {$temp['Image']['NonMain'] = Array();}
 						if (!isset($temp['Image']['All'])) {$temp['Image']['All'] = Array();}
 						if ($image['name'] != '') {
-							$temp['Image']['Named'][$image['name']][$imageFile['ImageSize']['filename']] = '../photos/' . $imageFile['ImageFile']['id'] . '/' . $this->seo_tr($source['name']);
+							$temp['Image']['Named'][$image['name']][$imageFile['ImageSize']['filename']] = 'resimler/' . $imageFile['ImageFile']['filename'];
 						} else {
-							$temp['Image']['NonNamed'][$image['id']][$imageFile['ImageSize']['filename']] = '../photos/' . $imageFile['ImageFile']['id'] . '/' . $this->seo_tr($source['name']);
+							$temp['Image']['NonNamed'][$image['id']][$imageFile['ImageSize']['filename']] = 'resimler/' . $imageFile['ImageFile']['filename'];
 						}
 						if ($image['main'] != '') {
-							$temp['Image']['Main'][$imageFile['ImageSize']['filename']] = '../photos/' . $imageFile['ImageFile']['id'] .'/' . $this->seo_tr($source['name']);
+							$temp['Image']['Main'][$imageFile['ImageSize']['filename']] = 'resimler/' . $imageFile['ImageFile']['filename'];
 						} else {
-							$temp['Image']['NonMain'][$image['id']][$imageFile['ImageSize']['filename']] = '../photos/' . $imageFile['ImageFile']['id'] . '/' . $this->seo_tr($source['name']);
+							$temp['Image']['NonMain'][$image['id']][$imageFile['ImageSize']['filename']] = 'resimler/' . $imageFile['ImageFile']['filename'];
 						}
-						$temp['Image']['All'][$image['id']][$imageFile['ImageSize']['filename']] = '../photos/' . $imageFile['ImageFile']['id'] . '/' . $this->seo_tr($source['name']);
+						$temp['Image']['All'][$image['id']][$imageFile['ImageSize']['filename']] = 'resimler/' . $imageFile['ImageFile']['filename'];
 					}
 				}
 				$output[] = $temp;	

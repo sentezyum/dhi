@@ -1,5 +1,5 @@
     <div class="grid_12 showcase">
-        <a href="yer_hizmetleri.html">
+        <a href="<?php echo Router::url(array('language' => $this->Session->read('Config.language'), 'controller' => 'product_groups', 'id' => 3, 'slug' => 'yer_ekipmanlari')); ?>">
             <div class="grid_6 alpha omega yer_hizmetleri">
                 <div class="image core_animation_fast">&nbsp;</div>
                 <div class="button core_animation_fast">&nbsp;</div>
@@ -9,7 +9,7 @@
                 </div>
             </div>
         </a>
-        <a href="led_ekipmanlari.html">
+        <a href="<?php echo Router::url(array('language' => $this->Session->read('Config.language'), 'controller' => 'product_groups', 'id' => 4, 'slug' => 'led_ekipmanlari')); ?>">
             <div class="grid_6 alpha omega led_urunler">
                 <div class="image core_animation_fast">&nbsp;</div>
                 <div class="button core_animation_fast">&nbsp;</div>

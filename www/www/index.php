@@ -38,7 +38,7 @@ if (!defined('DS')) {
  *
  */
 if (!defined('ROOT')) {
-	define('ROOT', "D:". DS . "Wamp" . DS . "www" . DS . "dhi" . DS . "www" . DS . "db");
+	define('ROOT', "E:". DS . "Wamp" . DS . "www" . DS . "dhi" . DS . "www" . DS . "db");
 }
 
 /**

@@ -1,6 +1,6 @@
 <?php
 
-require_once dirname(__DIR__) . '/Vendor/autoload.php';
+require_once ROOT . DS . APP_DIR . DS . 'Vendor' . DS . 'autoload.php';
 
 /**
  * This is core configuration file.

@@ -11,7 +11,7 @@
 				
 				
 				<div class="block_content">
-				<?php echo $this->Form->create('Post',Array('encoding' => Null,'type' => 'file', 'inputDefaults' => Array('div' => false,'format' => array('before', 'label', 'error', 'between', 'input', 'after'))));?>
+				<?php echo $this->Form->create('Post',Array('encoding' => Null, 'inputDefaults' => Array('div' => false,'format' => array('before', 'label', 'error', 'between', 'input', 'after'))));?>
 				<?php echo $this->Form->input('id',Array('label'=>Array('text' =>'Haber Kategorisi :','class' => 'req'),'class' => 'styled','autocomplete' => 'off','between' => '<br/>','error' => array('wrap' => 'span','class' => 'note error')));?>
 
 				<?php foreach (Configure::read('lang') as $lang) { ?>
@@ -33,9 +33,6 @@
 						<?php echo $this->Form->input('value' . ($lang != Configure::read('base_lang') ? '_' . $lang : ''), array('label' => array('text' =>'Haber Detayı (' . $lang . ') :','class' => 'req'),'class' => 'wysiwyg','type' => 'textarea', 'autocomplete' => 'off','between' => '<br/>','error' => array('wrap' => 'span','class' => 'note error')));?>
 					</p>	
 				<?php } ?>
-				<p>
-					<?php echo $this->Form->input('image', array('type' => 'file', 'label' => 'Haber Fotoğrafı :')); ?>
-				</p>
 				<p>
 					<?php echo $this->Form->input('has_confirm',Array('label'=>Array('text' =>' Aktif'),'class' => 'checkbox','format' => array('before', 'input', 'label', 'error', 'between', 'after'),'error' => array('wrap' => 'span','class' => 'note error')));?>
 				</p>

@@ -4,40 +4,35 @@ App::uses('AppController', 'Controller');
 App::uses('ModulesController', 'Controller');
 
 class PostsController extends AppController {
-	var $name = 'Posts';
-	function view($id = Null) {
-			
-		$postId = $id;
-		$post = $this->Post->findById($postId);
-		if (isset($post['Post']['id'])) {
-			$data['Post']['seencount'] = $post['Post']['seencount'] + 1;
-			$data['Post']['id'] = $postId;
-			$this->Post->save($data);	
-		} else {
+	
+	public $name = 'Posts';
+
+	public $uses = 'Post';
+	
+	public function index() {
+		$posts = $this->Post->find("all", array('limit' => 25));
+		if (empty($posts)) {
 			$this->redirect('/');
 		}
-		$post = $this->Post->findById($postId);
-		$posts[0] = $post;
-		$post = $this->Post->Image->getImages($posts,'post');
-                $this->set('post',$post[0]);
-                $lang = $this->Session->read('lang');
-		$this->set("title_for_layout", $post[0]['Post']['name_'.$lang['Short']]);
-            
-        }
-        function index(){
-		$this->paginate = array(
-	    	'limit' => 20,
-	        'order'    => array(
-	            			'Post.created'    => 'desc'
-	            		),
-	        'conditions' => Array(
-	        		'Post.has_confirm' => 1,
-	        )
-		);
-		$posts = $this->paginate();
-		$posts = $this->Post->Image->getImages($posts,'post');
-		$this->set('posts', $posts);
-        }
+		Configure::write("BodyClass", "corporate_about");
+		$this->set("title_for_layout", "Dhi" . " &raquo; " . __("Haberler"));
+		$this->set(compact('posts'));
+	}
+
+	public function view() {
+		if (!isset($this->request->params["id"])) {
+			$this->redirect('/');
+		}
+		$post = $this->Post->findById($this->request->params["id"]);
+		if (empty($post)) {
+			$this->redirect('/');
+		}
+		Configure::write("BodyClass", "corporate_about");
+		$post = $this->Post->Image->getImages(array(0 => $post), 'post');
+		$post = $post[0];
+		$this->set("title_for_layout", "Dhi" . " &raquo; "  . __("Haberler") . " &raquo; " . $post['Post']['name' . $this->langPrefix()]);
+		$this->set(compact('post'));
+   	}
 }
 
 ?>

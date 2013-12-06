@@ -7,42 +7,21 @@ class Post extends AppModel {
 	public $name = 'Post';
 
 	public $validate = array(
-		'name_tr' => array(
+		'name' => array(
 			'rule-1' => array(
 				'rule' => 'notEmpty',
 				'message' => 'Boş Bırakılamaz',
 				'last' => true				
 			)
 		),
-		'value_tr' => array(
+		'value' => array(
 			'rule-1' => array(
 				'rule' => 'notEmpty',
 				'message' => 'Boş Bırakılamaz',
 				'last' => true				
 			)
 		),
-        'name_en' => array(
-			'rule-1' => array(
-				'rule' => 'notEmpty',
-				'message' => 'Boş Bırakılamaz',
-				'last' => true				
-			)
-		),
-		'value_en' => array(
-			'rule-1' => array(
-				'rule' => 'notEmpty',
-				'message' => 'Boş Bırakılamaz',
-				'last' => true				
-			)
-		),
-        'name_bg' => array(
-			'rule-1' => array(
-				'rule' => 'notEmpty',
-				'message' => 'Boş Bırakılamaz',
-				'last' => true				
-			)
-		),
-		'value_bg' => array(
+        'name' => array(
 			'rule-1' => array(
 				'rule' => 'notEmpty',
 				'message' => 'Boş Bırakılamaz',

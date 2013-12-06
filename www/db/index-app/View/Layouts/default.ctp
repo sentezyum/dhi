@@ -14,7 +14,7 @@
         echo $this->fetch('script');
     ?>
 </head>
-<body class='<?php echo @$this->params->group; ?>'>
+<body class='<?php echo Configure::read("BodyClass"); ?>'>
     <h1 style="display:none;"><?php echo __($title_for_layout); ?></h1>
     <div class="container_12">
         <div class="grid_12 header-thin">
@@ -22,7 +22,11 @@
                 +90 212 220 00 00  | <a href="mailto:info@dhiexport.com">info@dhiexport.com</a>
             </div>
             <div class="grid_6 omega text-right language-select">
-                <a href="#">türkçe</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">english</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">русский</a>
+                <?php echo $this->Html->link("türkçe", '/tr' . str_replace("//", "/", str_replace(Configure::read("lang"), "", $this->here))); ?>
+                &nbsp;&nbsp;|&nbsp;&nbsp;
+                <?php echo $this->Html->link("english", '/eng' . str_replace("//", "/", str_replace(Configure::read("lang"), "", $this->here))); ?>
+                &nbsp;&nbsp;|&nbsp;&nbsp;
+                <?php echo $this->Html->link("русский", '/rus' . str_replace("//", "/", str_replace(Configure::read("lang"), "", $this->here))); ?>
             </div>
         </div>
         <div class="grid_12 header">
@@ -39,20 +43,20 @@
                     <ul>
                         <li><?php echo $this->Html->link(__('ANA SAYFA'), '/', array('class' => 'core_animation_fast')); ?></li>
                         <li>
-                            <?php echo $this->Html->link(__('ÜRÜN GRUPLARI'), '/', array('class' => 'core_animation_fast')); ?>
+                            <a href="Javascript:void(0);" class="core_animation_fast"><?php echo __('ÜRÜN GRUPLARI'); ?></a>
                             <ul class="core_animation_fast">
-                                <li><?php echo $this->Html->link(__('YER HİZMETLERİ EKİPMANLARI'), array('controller' => 'urun_gruplari', 'action' => 'yer_ekipmanlari'), array('class' => 'core_animation_fast')); ?></li>
-                                <li><?php echo $this->Html->link(__('ENDÜSTRİYEL LED AYDINLATMA'), array('controller' => 'urun_gruplari', 'action' => 'led_ekipmanlari'), array('class' => 'core_animation_fast')); ?></li>
+                                <li><?php echo $this->Html->link(__('YER HİZMETLERİ EKİPMANLARI'), array('language' => $this->Session->read('Config.language'), 'controller' => 'product_groups', 'id' => 3, 'slug' => 'yer_ekipmanlari'), array('class' => 'core_animation_fast')); ?></li>
+                                <li><?php echo $this->Html->link(__('ENDÜSTRİYEL LED AYDINLATMA'), array('language' => $this->Session->read('Config.language'), 'controller' => 'product_groups', 'id' => 4, 'slug' => 'led_ekipmanlari'), array('class' => 'core_animation_fast')); ?></li>
                             </ul>
                         </li>
-                        <li><a href="#" class="core_animation_fast">KURUMSAL</a>
+                        <li><a href="Javascript:void(0);" class="core_animation_fast"><?php echo __('KURUMSAL'); ?></a>
                             <ul class="core_animation_fast">
-                                <li><?php echo $this->Html->link(__('HAKKIMIZDA'), '/hakkimizda', array('class' => 'core_animation_fast')); ?></li>
-                                <li><?php echo $this->Html->link(__('DUYURU & HABERLER'), '/haber_duyuru', array('class' => 'core_animation_fast')); ?></li>
-                                <li><?php echo $this->Html->link(__('REFERANSLAR'), '/referanslar', array('class' => 'core_animation_fast')); ?></li>
+                                <li><?php echo $this->Html->link(__('HAKKIMIZDA'), array('controller' => 'page', 'id' => 1, 'slug' => 'hakkimizda'), array('class' => 'core_animation_fast')); ?></li>
+                                <li><?php echo $this->Html->link(__('DUYURU & HABERLER'), array('controller' => 'posts'), array('class' => 'core_animation_fast')); ?></li>
+                                <li><?php echo $this->Html->link(__('REFERANSLAR'), array('controller' => 'references'), array('class' => 'core_animation_fast')); ?></li>
                             </ul>
                         </li>
-                        <li><?php echo $this->Html->link(__('İLETİŞİM'), '/iletisim', array('class' => 'core_animation_fast')); ?></li>
+                        <li><?php echo $this->Html->link(__('İLETİŞİM'),  array('controller' => 'contacts'), array('class' => 'core_animation_fast')); ?></li>
                     </ul>
                 </div>
             </div>
@@ -75,5 +79,10 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            if ($("body").height() > $(".footer").offset().top + $(".footer").height()) { $('.content').css("min-height", $('.content').height() + ($("body").height() - ($(".footer").offset().top + $(".footer").height())) + "px");}
+        });
+    </script>
 </body>
 </html>

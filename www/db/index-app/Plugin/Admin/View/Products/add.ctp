@@ -25,6 +25,13 @@
 <?php } ?>
 <?php foreach (Configure::read('lang') as $lang) { ?>
 	<p>
+		<?php echo $this->Form->input('label' . ($lang != Configure::read('base_lang') ? '_' . $lang : ''), array('label'=>Array('text' => 'Ürün Kısa Detayı (' . $lang . ') :'),'autocomplete' => 'off','rows'=>3,'type' => 'textarea','onKeyUp' => 'limitText(this, 250);','between' => '<br/>','error' => array('wrap' => 'span','class' => 'note error')));?>
+		<br>
+		<font size="1"><span>250</span> karakter kaldı</font>
+	</p>	
+<?php } ?>
+<?php foreach (Configure::read('lang') as $lang) { ?>
+	<p>
 		<?php echo $this->Form->input('value' . ($lang != Configure::read('base_lang') ? '_' . $lang : ''), array('label'=>Array('text' =>'Ürün Detayı (' . $lang . ') :', 'class' => 'req'),'class' => 'wysiwyg','autocomplete' => 'off','between' => '<br/>','error' => array('wrap' => 'span','class' => 'note error')));?>
 	</p>	
 <?php } ?>
@@ -41,3 +48,13 @@
 				<div class="bendr"></div>
 					
 			</div>		<!-- .block ends -->
+
+<script language="javascript" type="text/javascript">
+	function limitText(limitField, limitNum) {
+		limitField = $(limitField);
+		if (limitField.val().length > limitNum) {
+			limitField.val(limitField.val().substring(0, limitNum));
+		}
+		limitField.next().next().children("span").html(limitNum - limitField.val().length)
+	}
+</script>
