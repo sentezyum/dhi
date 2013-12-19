@@ -37,8 +37,9 @@ if (!defined('DS')) {
  * The full path to the directory which holds "app", WITHOUT a trailing DS.
  *
  */
+
 if (!defined('ROOT')) {
-	define('ROOT', "E:". DS . "Wamp" . DS . "www" . DS . "dhi" . DS . "www" . DS . "db");
+	define('ROOT', "D:". DS . "InetPub" . DS . "vhosts" . DS . "dhi.com.tr");
 }
 
 /**

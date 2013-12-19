@@ -11,6 +11,7 @@ class PostsController extends AppController {
 	
 	public function index() {
 		$posts = $this->Post->find("all", array('limit' => 25));
+		$posts = $this->Post->Image->getImages($posts, 'post');
 		if (empty($posts)) {
 			$this->redirect('/');
 		}

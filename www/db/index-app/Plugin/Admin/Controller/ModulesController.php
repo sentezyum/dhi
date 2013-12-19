@@ -21,7 +21,8 @@ class ModulesController extends AdminAppController {
 		'Services' => '',
 		'Notifications' => 'NotificationSetting',
 		'Staticpages' => 'StaticpageSetting',
-		'Productgroups' => 'ProductgroupSettings'
+		'Productgroups' => 'ProductgroupSettings',
+		'References' => 'ReferenceSettings'
 	);
 
 	public $maintance = Array(
@@ -35,7 +36,8 @@ class ModulesController extends AdminAppController {
 		'service' => '',
 		'notification' => 'Notification',
 		'staticpage' => 'Staticpage',
-		'productgroup' => 'Productgroup'
+		'productgroup' => 'Productgroup',
+		'reference' => 'Reference'
 	);
 
 	public function index() {

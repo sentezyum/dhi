@@ -20,7 +20,6 @@ class ProductgroupsController extends AdminAppController {
 	}
 	public function add() {
 		if (!empty($this->params->data)) {
-			if ($this->params->data['Productgroup']['order'] == "") {$this->params->data['Productgroup']['order'] = 10000;}
 			$this->Productgroup->create();
 			if ($this->Productgroup->save($this->params->data)) {
 				$this->Session->setFlash(__('<p>Ürün grubu kaydedildi</p>', true),'default',array('class' => 'message info'));
@@ -38,7 +37,6 @@ class ProductgroupsController extends AdminAppController {
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->params->data)) {
-			if ($this->params->data['Productgroup']['order'] == "") {$this->params->data['Productgroup']['order'] = 10000;}
 			if ($this->Productgroup->save($this->params->data)) {
 				$this->Session->setFlash(__('<p>Ürün grubu kaydedildi</p>', true),'default',array('class' => 'message info'));
 				$this->redirect(array('action' => 'index'));

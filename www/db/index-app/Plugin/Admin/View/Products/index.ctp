@@ -30,7 +30,7 @@
                     	<td><?php echo @$this->Html->link(__($confirm[$Product['Product']['has_confirm']], true), array('action' => 'set_confirm', $Product['Product']['id'],$link[$Product['Product']['has_confirm']]));?>&nbsp</td>
                         <td><?php echo $Product['Productgroup']['name'];?>&nbsp;</td>
                         <td><?php echo substr($Product['Product']['name'],0,50) . '...'; ?>&nbsp;</td>
-                        <td class="delete"><?php echo $this->Html->link(__('Fotoğraf(' . count($Product['Image']) . ')', true),  array('controller'=> 'images','action' => 'index','product',$Product['Product']['id'])); ?> | 
+                        <td class="delete"><?php echo $this->Html->link(__('Fotoğraf(' . count($Product['Image']) . ')', true),  array('controller'=> 'images','action' => 'index','product',$Product['Product']['id'])); ?> | <?php echo $this->Html->link(__('Döküman(' . count($Product['Document']) . ')', true),  array('controller'=> 'documents','action' => 'index','product',$Product['Product']['id'])); ?> | 
                             <?php echo $this->Html->link(__('Düzenle', true), array('action' => 'edit', $Product['Product']['id'])); ?> |
                             <?php echo $this->Html->link(__('Sil', true), array('action' => 'delete', $Product['Product']['id']), null, sprintf(__('%s No\'lu Kaydı Silmek İstediğinize Emin misiniz?', true), $Product['Product']['id'])); ?>
                         </td>

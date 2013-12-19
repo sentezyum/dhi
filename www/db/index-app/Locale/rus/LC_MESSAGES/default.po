@@ -1,4 +1,4 @@
-﻿msgid "Bağlantılar"
+﻿msgid "KURUMSAL"
 msgstr "Линкове"
 
 msgid "Dil Seçiniz"

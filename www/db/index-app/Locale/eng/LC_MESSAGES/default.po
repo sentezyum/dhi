@@ -1,5 +1,5 @@
-msgid "Bağlantılar"
-msgstr "Links"
+msgid "KURUMSAL"
+msgstr "COMMER"
 
 msgid "Dil Seçiniz"
 msgstr "Select Language"

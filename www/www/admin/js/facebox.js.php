@@ -1,4 +1,4 @@
-﻿<?php header("Content-Type: text/javascript; charset=utf-8");  ?>
+﻿<?php @header("Content-Type: text/javascript; charset=utf-8");  ?>
 /*
  * Facebox (for jQuery)
  * version: 1.2 (05/05/2008)

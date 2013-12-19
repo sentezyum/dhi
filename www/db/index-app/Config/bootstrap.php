@@ -6,7 +6,7 @@ Configure::write('lang', array('tr', 'eng', 'rus'));
 Configure::write('base_lang', 'tr');
 
 /**
- * This file is loaded automatically by the app/webroot/index.php file after core.php
+ * Thi's file is loaded automatically by the app/webroot/index.php file after core.php
  *
  * This file should load/create any application wide configuration settings, such as
  * Caching, Logging, loading additional configuration files.

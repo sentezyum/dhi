@@ -9,6 +9,15 @@ class AppController extends Controller {
 	public $components = array('Cookie','Session');
 
 	public function beforeFilter() {
+        $this->loadModel('GeneralSetting');
+        $temps = $this->GeneralSetting->find('all');
+        $generalSettings = array();
+        foreach ($temps as $temp) {
+            $generalSettings[$temp['GeneralSetting']['tag']] = $temp['GeneralSetting']['value'];
+        }
+        $this->set(compact('generalSettings'));
+        $this->generalSettings = $generalSettings;
+        
 		$this->set("title_for_layout","DHİ");
 		$this->_setLanguage();
 		$this->set("langPrefix", $this->langPrefix());

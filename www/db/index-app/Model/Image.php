@@ -3,10 +3,10 @@
 App::uses('AppModel', 'Model');
 
 class Image extends AppModel {
-	var $name = 'Image';
-	var $displayField = 'name';
+	public $name = 'Image';
+	public $displayField = 'name';
 
-	var $belongsTo = array(
+	public $belongsTo = array(
 		'Post' => array(
 			'className' => 'Post',
 			'foreignKey' => 'post_id',
@@ -62,10 +62,17 @@ class Image extends AppModel {
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
+		),
+		'Reference' => array(
+			'className' => 'Reference',
+			'foreignKey' => 'reference_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
 		)
 	);
 
-	var $hasMany = array(
+	public $hasMany = array(
 		'ImageFile' => array(
 			'className' => 'ImageFile',
 			'foreignKey' => 'image_id',

@@ -482,6 +482,24 @@ class File {
      *
      * @return string
      */
+
+    public function getMime() {
+        if(function_exists('mime_content_type')&&$mode==0){ 
+            $mimetype = mime_content_type($filename); 
+            return $mimetype; 
+        }elseif(function_exists('finfo_open')&&$mode==0){ 
+            $finfo = finfo_open(FILEINFO_MIME); 
+            $mimetype = finfo_file($finfo, $filename); 
+            finfo_close($finfo); 
+            return $mimetype; 
+        }elseif(array_key_exists($ext, $mime_types)){ 
+            return $mime_types[$ext]; 
+        }else { 
+            return 'application/octet-stream'; 
+        } 
+
+    }
+
     public function type() {
         return $this->_cache(__FUNCTION__, function($file) {
             /** @type \Transit\File $file */
@@ -499,9 +517,9 @@ class File {
 
             // Fallback because of fileinfo bug: https://bugs.php.net/bug.php?id=53035
             if (!$type) {
-                $info = finfo_open(FILEINFO_MIME_TYPE);
-                $type = finfo_file($info, $file->path());
-                finfo_close($info);
+                //$info = finfo_open(FILEINFO_MIME_TYPE);
+                //$type = finfo_file($info, $file->path());
+                //finfo_close($info);
             }
 
             // Check the mimetype against the extension

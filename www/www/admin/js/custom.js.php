@@ -1,4 +1,4 @@
-﻿<?php header("Content-Type: text/javascript; charset=utf-8");  ?>
+﻿<?php @header("Content-Type: text/javascript; charset=utf-8");  ?>
 jQuery.extend(DateInput.DEFAULT_OPTS, {
   month_names: ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"],
   short_month_names: ["Oca", "Şub", "Mar", "Nis", "May", "Haz", "Tem", "Ağu", "Eyl", "Ekim", "Kas", "Ara"],

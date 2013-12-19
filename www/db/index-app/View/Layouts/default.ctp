@@ -19,7 +19,7 @@
     <div class="container_12">
         <div class="grid_12 header-thin">
             <div class="grid_6 alpha contact">
-                +90 212 220 00 00  | <a href="mailto:info@dhiexport.com">info@dhiexport.com</a>
+                +90 212 220 00 00 | <a href="mailto:info@dhiexport.com">info@dhiexport.com</a>
             </div>
             <div class="grid_6 omega text-right language-select">
                 <?php echo $this->Html->link("türkçe", '/tr' . str_replace("//", "/", str_replace(Configure::read("lang"), "", $this->here))); ?>
@@ -35,9 +35,9 @@
             </div>
             <div class="grid_10 omega menu-social">
                 <div class="grid_10 alpha omega social text-right">
-                    <a href="#" class="facebook core_animation core_animation_fast">&nbsp;</a>
-                    <a href="#" class="twitter core_animation core_animation_fast">&nbsp;</a>
-                    <a href="#" class="youtube core_animation core_animation_fast">&nbsp;</a>
+                    <a href="<?php echo $generalSettings['facebook_link']; ?>" class="facebook core_animation core_animation_fast">&nbsp;</a>
+                    <a href="<?php echo $generalSettings['twitter_link']; ?>" class="twitter core_animation core_animation_fast">&nbsp;</a>
+                    <a href="<?php echo $generalSettings['youtube_link']; ?>" class="youtube core_animation core_animation_fast">&nbsp;</a>
                 </div>
                 <div class="grid_10 alpha omega menu text-right">
                     <ul>
@@ -56,7 +56,7 @@
                                 <li><?php echo $this->Html->link(__('REFERANSLAR'), array('controller' => 'references'), array('class' => 'core_animation_fast')); ?></li>
                             </ul>
                         </li>
-                        <li><?php echo $this->Html->link(__('İLETİŞİM'),  array('controller' => 'contacts'), array('class' => 'core_animation_fast')); ?></li>
+                        <li><?php echo $this->Html->link(__('İLETİŞİM'),  array('controller' => 'contacts', 'action' => 'index'), array('class' => 'core_animation_fast')); ?></li>
                     </ul>
                 </div>
             </div>

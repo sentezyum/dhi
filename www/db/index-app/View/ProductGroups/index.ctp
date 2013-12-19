@@ -31,11 +31,12 @@
 		<?php if (!empty($products)) { ?>
 			<?php foreach ($products as $product) { ?>
 				<div style="border-bottom:thin solid; border-bottom-color:gray; clear:both; float:left; width:100%;">
+					<a href="<?php echo Router::url(array('controller' => 'product', 'id' => $product['Product']['id'], 'slug' => $this->Genel->seo_tr($product['Product']['name' . $langPrefix]))); ?>">
 					<div class="detail_left">
 						<h3><?php echo $product["Product"]["name" . $langPrefix]; ?></h3>
 						<p style="margin-bottom:10px;"><?php echo $product["Product"]["label" . $langPrefix]; ?></p>
 					</div>
-
+					<a>
 					<div class="detail_right">
 					<?php if(isset($product["Image"])) { $cursor = 1;?>
 						<?php foreach ($product["Image"]["All"] as $images) { ?>

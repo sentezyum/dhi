@@ -18,7 +18,8 @@ class ImagesController extends AdminAppController {
 		'notification' => Array('controller'=>'notifications','link' => 'notifications', 'views' => 'Duyuru', 'viewp' => 'Duyurulara','model' => 'Notification'),
 		'staticpage' => Array('controller'=>'staticpages','link' => 'staticpages', 'views' => 'Sayfa', 'viewp' => 'Sayfalara','model' => 'Staticpage'),
 		'imagegallery' => Array('controller'=>'imagegalleries','link' => 'imagegalleries', 'views' => 'Resim Galerisi', 'viewp' => 'Resim Galerisine','model' => 'Imagegallery'),
-		'productgroup' => Array('controller'=>'productgroups','link' => 'productgroups', 'views' => 'Ürün Grubu', 'viewp' => 'Ürün Grubuna','model' => 'Productgroup')
+		'productgroup' => Array('controller'=>'productgroups','link' => 'productgroups', 'views' => 'Ürün Grubu', 'viewp' => 'Ürün Grubuna','model' => 'Productgroup'),
+		'reference' => Array('controller'=>'references','link' => 'references', 'views' => 'Referans', 'viewp' => 'Referensa','model' => 'Reference')
 	);
 
 	public function index($model = Null,$id = Null) {
@@ -49,7 +50,6 @@ class ImagesController extends AdminAppController {
 		
 		if (!empty($this->request->data)) {
 			$hata = $this->request->data["ImageFile"]["filename"]["error"];
-			pr($this->request->data);
     		if ($hata === 0) {
     			$this->loadModel('ImageFile');
     			$this->loadModel('ImageType');

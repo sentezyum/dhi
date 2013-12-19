@@ -33,9 +33,6 @@
 	</p>	
 <?php } ?>
 <p>
-	<?php echo $this->Form->input('image', array('type' => 'file', 'label' => 'Haber Fotoğrafı :')); ?>
-</p>
-<p>
 	<?php echo $this->Form->input('has_confirm',Array('label'=>Array('text' =>' Aktif'),'class' => 'checkbox','format' => array('before', 'input', 'label', 'error', 'between', 'after'),'checked' => false,'error' => array('wrap' => 'span','class' => 'note error')));?>
 </p>
 <p>

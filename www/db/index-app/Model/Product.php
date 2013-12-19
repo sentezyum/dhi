@@ -7,20 +7,6 @@ class Product extends AppModel {
 	var $displayField = 'name';
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 	var $validate = array(
-		'name' => array(
-			'rule-1' => array(
-						'rule' => 'notEmpty',
-						'message' => 'Boş Bırakılamaz',
-						'last' => true				
-					)
-		),
-		'value' => array(
-			'rule-1' => array(
-						'rule' => 'notEmpty',
-						'message' => 'Boş Bırakılamaz',
-						'last' => true				
-					)
-		),
 		'productgroup_id' => array(
 			'rule-1' => array(
 						'rule' => 'notEmpty',
@@ -53,7 +39,21 @@ class Product extends AppModel {
 			'exclusive' => '',
 			'finderQuery' => '',
 			'counterQuery' => ''
+		),
+		'Document' => array(
+			'className' => 'Document',
+			'foreignKey' => 'product_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
 		)
+
 	);
 
 }
